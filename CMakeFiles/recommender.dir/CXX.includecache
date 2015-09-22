@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/brunolaporais/git/blprecsys/file_operation/input.h
+stdio.h
+-
+iostream
+-
+fstream
+-
+../model/dataset.h
+/home/brunolaporais/git/blprecsys/model/dataset.h
+
+/home/brunolaporais/git/blprecsys/main.cpp
+iostream
+-
+stdlib.h
+-
+stdio.h
+-
+file_operation/input.h
+/home/brunolaporais/git/blprecsys/file_operation/input.h
+model/dataset.h
+/home/brunolaporais/git/blprecsys/model/dataset.h
+
+/home/brunolaporais/git/blprecsys/model/dataset.h
+stdio.h
+-
+iostream
+-
+tr1/unordered_map
+-
+

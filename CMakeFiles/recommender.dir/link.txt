@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=c++11 -O3 -DNDEBUG    CMakeFiles/recommender.dir/main.cpp.o  -o recommender -rdynamic model/libmodel.a file_operation/libfile_operation.a model/libmodel.a 
