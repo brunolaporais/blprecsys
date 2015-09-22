@@ -19,7 +19,6 @@ class dataset {
 public:
 	dataset();
 	virtual ~dataset();
-private:
 	unordered_map<int,unordered_map<int,double> > ratingsByUser;
 	unordered_map<int,unordered_map<int,double> > ratingsByItem;
 	unordered_map<int,unordered_map<int,double> > targetData;

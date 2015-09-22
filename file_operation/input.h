@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 
 #include "../model/dataset.h"
 
@@ -25,7 +26,7 @@ public:
 private:
 	string ratingFile;
 	string targetFile;
-	dataset &save;
+	dataset &data;
 };
 
 #endif /* FILE_OPERATION_INPUT_H_ */
