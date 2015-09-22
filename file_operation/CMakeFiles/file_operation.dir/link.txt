@@ -1,2 +1,0 @@
-/usr/bin/ar cr libfile_operation.a  CMakeFiles/file_operation.dir/input.cpp.o CMakeFiles/file_operation.dir/output.cpp.o
-/usr/bin/ranlib libfile_operation.a
