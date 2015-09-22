@@ -1,0 +1,2 @@
+ADD_SUBDIRECTORY(colaborative_filtring)
+ADD_SUBDIRECTORY(model_based)

@@ -1,0 +1,2 @@
+/usr/bin/ar cr libmodel.a  CMakeFiles/model.dir/dataset.cpp.o
+/usr/bin/ranlib libmodel.a

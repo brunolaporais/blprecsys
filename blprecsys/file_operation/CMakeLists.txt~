@@ -1,0 +1,10 @@
+# CmakeLists.txt in Controller dir
+
+file(GLOB file_operation_SRC
+    "*.h"
+    "*.cpp"
+)
+
+
+ADD_LIBRARY( file_operation ${control_SRC})
+target_link_libraries(file_operation model)

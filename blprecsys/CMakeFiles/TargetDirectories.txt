@@ -1,0 +1,3 @@
+/home/brunolaporais/git/blprecsys/blprecsys/file_operation/CMakeFiles/file_operation.dir
+/home/brunolaporais/git/blprecsys/blprecsys/model/CMakeFiles/model.dir
+/home/brunolaporais/git/blprecsys/blprecsys/CMakeFiles/recommender.dir
