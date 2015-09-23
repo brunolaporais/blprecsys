@@ -1,4 +1,4 @@
-# CmakeLists.txt in Controller dir
+# CmakeLists.txt in model dir
 
 file(GLOB model_SRC
     "*.h"

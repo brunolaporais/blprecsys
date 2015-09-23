@@ -10,23 +10,23 @@
 #include <fstream>
 #include <iomanip>
 
-#include "../model/dataset.h"
+#include "../model/Dataset.h"
 
 using namespace std;
 
 #ifndef FILE_OPERATION_INPUT_H_
 #define FILE_OPERATION_INPUT_H_
 
-class input {
+class Input {
 public:
-	input(dataset &d, string rating, string target);
-	virtual ~input();
+	Input(Dataset &d, string rating, string target);
+	virtual ~Input();
 	void readRatings();
 	void readTargets();
 private:
 	string ratingFile;
 	string targetFile;
-	dataset &data;
+	Dataset &data;
 };
 
 #endif /* FILE_OPERATION_INPUT_H_ */

@@ -1,2 +1,11 @@
+# CmakeLists.txt in recsys_methods dir
 ADD_SUBDIRECTORY(colaborative_filtring)
-ADD_SUBDIRECTORY(model_based)
+#ADD_SUBDIRECTORY(model_based)
+
+file(GLOB recsys_methods_SRC
+    "*.h"
+    "*.cpp"
+)
+
+ADD_LIBRARY(recsys_methods ${recsys_methods_SRC})
+target_link_libraries(recsys_methods model)

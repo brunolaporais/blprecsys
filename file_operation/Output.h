@@ -8,10 +8,10 @@
 #ifndef FILE_OPERATION_OUTPUT_H_
 #define FILE_OPERATION_OUTPUT_H_
 
-class output {
+class Output {
 public:
-	output();
-	virtual ~output();
+	Output();
+	virtual ~Output();
 };
 
 #endif /* FILE_OPERATION_OUTPUT_H_ */

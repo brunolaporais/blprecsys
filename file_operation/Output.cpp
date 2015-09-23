@@ -1,18 +1,18 @@
 /*
- * data.cpp
+ * output.cpp
  *
  *  Created on: Sep 22, 2015
  *      Author: brunolaporais
  */
 
-#include "dataset.h"
+#include "Output.h"
 
-dataset::dataset() {
+Output::Output() {
 	// TODO Auto-generated constructor stub
 
 }
 
-dataset::~dataset() {
+Output::~Output() {
 	// TODO Auto-generated destructor stub
 }
 

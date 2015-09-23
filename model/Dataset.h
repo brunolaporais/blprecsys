@@ -15,12 +15,13 @@ using namespace std::tr1;
 #ifndef MODEL_DATA_H_
 #define MODEL_DATA_H_
 
-class dataset {
+class Dataset {
 public:
-	dataset();
-	virtual ~dataset();
-	unordered_map<int,unordered_map<int,double> > ratingsByUser;
-	unordered_map<int,unordered_map<int,double> > ratingsByItem;
+	Dataset();
+	virtual ~Dataset();
+	unordered_map<int,unordered_map<int,int> > ratingsByUser;
+	unordered_map<int,unordered_map<int,int> > ratingsByItem;
+	unordered_map<int, double> avgByUser;
 	unordered_map<int,unordered_map<int,double> > targetData;
 };
 

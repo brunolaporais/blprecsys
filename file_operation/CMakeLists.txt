@@ -1,4 +1,4 @@
-# CmakeLists.txt in Controller dir
+# CmakeLists.txt in file_operation dir
 
 file(GLOB file_operation_SRC
     "*.h"
