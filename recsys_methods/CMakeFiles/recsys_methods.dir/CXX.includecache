@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/brunolaporais/git/blprecsys/model/Dataset.h
+stdio.h
+-
+iostream
+-
+tr1/unordered_map
+-
+vector
+-
+algorithm
+-
+
+/home/brunolaporais/git/blprecsys/recsys_methods/Similarity.cpp
+Similarity.h
+/home/brunolaporais/git/blprecsys/recsys_methods/Similarity.h
+
+/home/brunolaporais/git/blprecsys/recsys_methods/Similarity.h
+stdio.h
+-
+iostream
+-
+tr1/unordered_map
+-
+math.h
+-
+../model/Dataset.h
+/home/brunolaporais/git/blprecsys/model/Dataset.h
+

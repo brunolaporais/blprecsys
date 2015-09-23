@@ -16,6 +16,8 @@ Similarity::~Similarity() {
 }
 
 void Similarity::cosineByUser(int usr){
+	if(data.similarityData.find(usr) != data.similarityData.end()) return;
+
 	double cosine, userDenominator;
 	unordered_map<int,double> numeratorCosineByUser;
 	unordered_map<int,double> denominatorCosineByUser;
@@ -45,14 +47,18 @@ void Similarity::cosineByUser(int usr){
 		}
 	}
 
-	/*Atualiza Consino*/                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
+	/*Atualiza Consine*/
 	unordered_map<int,double>::iterator itCalcCosine = numeratorCosineByUser.begin();
 	for(;itCalcCosine != numeratorCosineByUser.end(); ++itCalcCosine){
-		cosine = itCalcCosine->second / (sqrt(userDenominator) * sqrt(denominatorCosineByUser[itCalcCosine->first]));
-		cout << itCalcCosine->first << " -> " << itCalcCosine->second
+		if(itCalcCosine->second != 0){
+			cosine = itCalcCosine->second / (sqrt(userDenominator) * sqrt(denominatorCosineByUser[itCalcCosine->first]));
+		}
+		data.similarityData[usr][itCalcCosine->first] = cosine;
+		/*//Cosine test
+		 cout << itCalcCosine->first << " -> " << itCalcCosine->second
 				<< "/(" << sqrt(userDenominator) << "*"
 				<< sqrt(denominatorCosineByUser[itCalcCosine->first]) << ") = ";
-		cout << cosine << "\n";
+		cout << cosine << "\n";*/
 	}
 }
 

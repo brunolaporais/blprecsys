@@ -1,0 +1,8 @@
+# CmakeLists.txt in validation dir
+file(GLOB validation_SRC
+    "*.h"
+    "*.cpp"
+)
+
+ADD_LIBRARY(validation ${validation_SRC})
+target_link_libraries(validation model cf file_operation)

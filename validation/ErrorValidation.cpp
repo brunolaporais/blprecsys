@@ -1,0 +1,84 @@
+/*
+ * ErrorValidation.cpp
+ *
+ *  Created on: Sep 23, 2015
+ *      Author: brunolaporais
+ */
+
+#include "ErrorValidation.h"
+
+ErrorValidation::ErrorValidation() {
+	// TODO Auto-generated constructor stub
+
+}
+
+ErrorValidation::~ErrorValidation() {
+	// TODO Auto-generated destructor stub
+}
+
+void ErrorValidation::rmseValidation(Dataset &correctData){
+	double rmse = 0.0;
+	int n = 0;
+	Dataset data;
+	for(int i = 1; i < 250; i++){
+		/*Read data*/
+		Input inp(data,"ratings.csv","targets.csv");
+		UserBased ub(data);
+		ub.predictTarget(i);
+		for(auto itUsrTarget = data.targetData.begin(); itUsrTarget != data.targetData.end(); ++itUsrTarget){
+			for(auto itItemTarget = data.targetData[itUsrTarget->first].begin(); itItemTarget != data.targetData[itUsrTarget->first].end(); ++itItemTarget){
+				rmse += pow(correctData.ratingsByUser[itUsrTarget->first][itItemTarget->first] - itItemTarget->second,2);
+				++n;
+			}
+		}
+		rmse /= n;
+		cout << i << "-RMSE: " << rmse << "\n";
+	}
+}
+
+void ErrorValidation::targetsGenerate(Dataset &correctData){
+	int n = 0;
+	cout << "UserId:ItemId\n";
+	for(auto itUsrTarget = correctData.ratingsByUser.begin(); itUsrTarget != correctData.ratingsByUser.end(); ++itUsrTarget){
+		if(n >= 80000) break;
+		for(auto itItemTarget = correctData.ratingsByUser[itUsrTarget->first].begin(); itItemTarget != correctData.ratingsByUser[itUsrTarget->first].end(); ++itItemTarget){
+			if(n >= 80000) break;
+			if((rand() % 10 + 1) > 5){
+				targetSelected[itUsrTarget->first][itItemTarget->first] = 0.0;
+				cout << "u";
+				cout.width(7);
+				cout.fill('0');
+				cout << itUsrTarget->first;
+				cout.clear();
+				cout << ":i";
+				cout.width(7);
+				cout.fill('0');
+				cout << itItemTarget->first;
+				cout.clear();
+				cout << "\n";
+				n++;
+			}
+		}
+	}
+	ratingsGenerate(correctData);
+}
+
+void ErrorValidation::ratingsGenerate(Dataset &correctData){
+	cout << "UserId:ItemId,Prediction\n";
+	for(auto itUsrTarget = correctData.ratingsByUser.begin(); itUsrTarget != correctData.ratingsByUser.end(); ++itUsrTarget){
+		for(auto itItemTarget = correctData.ratingsByUser[itUsrTarget->first].begin(); itItemTarget != correctData.ratingsByUser[itUsrTarget->first].end(); ++itItemTarget){
+			if(targetSelected[itUsrTarget->first].find(itItemTarget->first) != targetSelected[itUsrTarget->first].end()) continue;
+			cout << "u";
+			cout.width(7);
+			cout.fill('0');
+			cout << itUsrTarget->first;
+			cout.clear();
+			cout << ":i";
+			cout.width(7);
+			cout.fill('0');
+			cout << itItemTarget->first;
+			cout.clear();
+			cout << "," << itItemTarget->second << "\n";
+		}
+	}
+}

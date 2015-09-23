@@ -19,8 +19,8 @@ SET(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "/usr/local/lib")
 ADD_SUBDIRECTORY(file_operation)
 ADD_SUBDIRECTORY(model)
 ADD_SUBDIRECTORY(recsys_methods)
-#ADD_SUBDIRECTORY(validation)
+ADD_SUBDIRECTORY(validation)
 
 add_executable(recommender main.cpp)
 
-target_link_libraries(recommender model file_operation recsys_methods)
+target_link_libraries(recommender model file_operation cf validation)

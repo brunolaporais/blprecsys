@@ -1,0 +1,2 @@
+/usr/bin/ar cr libcf.a  CMakeFiles/cf.dir/UserBased.cpp.o
+/usr/bin/ranlib libcf.a

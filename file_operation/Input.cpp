@@ -45,6 +45,11 @@ void Input::readRatings(){
 
 			/*Insert new item (Users by item)*/
 			data.ratingsByItem[item][usr] = rate;
+			if(data.avgByItem.find(item) == data.avgByItem.end()){
+				data.avgByItem[item] = rate;
+			} else {
+				data.avgByItem[item] += rate;
+			}
 
 			/*Hashmap test*/
 			//cout << setprecision(11) << data.ratingsByItem[item][usr] << "\n";
@@ -57,14 +62,41 @@ void Input::readRatings(){
 		}
 		inFile.close();
 
-		/*Refresh avg*/
-		unordered_map<int, double>::iterator itAvg = data.avgByUser.begin();
-		for(;itAvg != data.avgByUser.end();++itAvg){
-			itAvg->second = itAvg->second / data.ratingsByUser[itAvg->first].size();
+		/*Refresh avg by user*/
+		unordered_map<int, double>::iterator itAvgUsr = data.avgByUser.begin();
+		for(;itAvgUsr != data.avgByUser.end();++itAvgUsr){
+			itAvgUsr->second = itAvgUsr->second / data.ratingsByUser[itAvgUsr->first].size();
+			data.usrAvg += itAvgUsr->second;
 		}
+		data.usrAvg /= data.avgByUser.size();
+
+		/*Refresh avg by item*/
+		unordered_map<int, double>::iterator itAvgItem = data.avgByItem.begin();
+		for(;itAvgItem != data.avgByItem.end();++itAvgItem){
+			itAvgItem->second = itAvgItem->second / data.ratingsByItem[itAvgItem->first].size();
+			data.itemAvg += itAvgItem->second;
+		}
+		data.itemAvg /= data.avgByItem.size();
 	}
 }
 
 void Input::readTargets(){
+	ifstream inFile(targetFile, ios::in | ios::app | ios::binary);
+	string line;
+	int usr, item;
+	double rate;
+	if(inFile.is_open()){
+		getline(inFile, line);
+		while(getline(inFile, line)){
+			if(line.empty()){
+				break;
+			}
+			usr = stoi(line.substr(1,line.find(":") - 1));
+			item = stoi(line.substr(line.find(":") + 2,line.find(",") - line.find(":")));
 
+			/*Insert new target*/
+			data.targetData[usr][item] = 0.0;
+		}
+		inFile.close();
+	}
 }
