@@ -27,8 +27,6 @@ void UserBased::predictTarget(int nbNumbers){
 			rating = data.avgByUser[itTargUsr->first];
 			numerator = 0.0;
 			denominator = 0.0;
-
-			data.sortUserSimilarity(itTargUsr->first);
 			iterNum = 0;
 
 			unordered_map<int,double>::iterator itSim = data.userSimilarity[itTargUsr->first].begin();
@@ -37,10 +35,13 @@ void UserBased::predictTarget(int nbNumbers){
 					if(data.ratingsByUser[itSim->first].find(itTargItem->first) != data.ratingsByUser[itSim->first].end()){
 						++iterNum;
 						numerator += itSim->second * (data.ratingsByUser[itSim->first][itTargItem->first] - data.avgByUser[itTargUsr->first]);
-						/*cout << itSim->second << "*("
+						/*if(itTargUsr->first == 28867 && itTargItem->first == 120863){
+							cout << itSim->second << "*("
 								<< data.ratingsByUser[itSim->first][itTargItem->first]
 								<< "-" << data.avgByUser[itTargUsr->first]
-								<< ")=" << numerator << "\n";*/
+								<< ")=" << numerator << "\n";
+							getchar();
+						}*/
 						denominator += abs(itSim->second);
 					}
 				} else {
@@ -50,7 +51,8 @@ void UserBased::predictTarget(int nbNumbers){
 						denominator += abs(itSim->second);
 					}
 				}
-				if(iterNum >= nbNumbers) break;
+
+				//if(iterNum >= nbNumbers) break; /*Had been wrost the solution*/
 			}
 			//cout << rating << "+=" << numerator << "/" << denominator << "\n";
 			if(numerator != 0){
@@ -65,11 +67,15 @@ void UserBased::predictTarget(int nbNumbers){
 			if(rating > 10) rating = 10;
 			if(rating < 1) rating = 1;
 
-			cout << rating << "\n";
+			//cout << rating << "\n";
+			rating = rating;
 			data.targetData[itTargUsr->first][itTargItem->first] = rating;
-			if(std::isnan(rating)) getchar();
+			/*if(std::isnan(rating)) {
+				cout<<"Erro!\n";
+				getchar();
+			}*/
 			//if(itTargUsr->first == 15176 && itTargItem->first == 1119646) getchar();
 		}
 	}
-	data.printSolution();
+	//data.printSolution();
 }

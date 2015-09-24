@@ -67,3 +67,11 @@ void Dataset::printSolution(){
 		}
 	}
 }
+
+void Dataset::targetMerge(Dataset &d){
+	for(auto itTargUsr = targetData.begin(); itTargUsr != targetData.end(); ++itTargUsr){
+		for(auto itTargItem = targetData[itTargUsr->first].begin(); itTargItem != targetData[itTargUsr->first].end(); ++itTargItem){
+			targetData[itTargUsr->first][itTargItem->first] = (itTargItem->second + d.targetData[itTargUsr->first][itTargItem->first])/2;
+		}
+	}
+}

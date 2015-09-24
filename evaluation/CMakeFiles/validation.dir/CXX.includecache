@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/blpadmin/git/blprecsys/evaluation/ErrorValidation.cpp
+/home/brunolaporais/git/blprecsys/evaluation/ErrorValidation.cpp
 ../evaluation/ErrorValidation.h
-/home/blpadmin/git/blprecsys/evaluation/ErrorValidation.h
+/home/brunolaporais/git/blprecsys/evaluation/ErrorValidation.h
 
-/home/blpadmin/git/blprecsys/evaluation/ErrorValidation.h
+/home/brunolaporais/git/blprecsys/evaluation/ErrorValidation.h
 iostream
 -
 stdlib.h
@@ -18,13 +18,15 @@ stdlib.h
 stdio.h
 -
 ../file_operation/Input.h
-/home/blpadmin/git/blprecsys/file_operation/Input.h
+/home/brunolaporais/git/blprecsys/file_operation/Input.h
 ../model/Dataset.h
-/home/blpadmin/git/blprecsys/model/Dataset.h
+/home/brunolaporais/git/blprecsys/model/Dataset.h
+../recsys_methods/colaborative_filtring/ItemBased.h
+/home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/ItemBased.h
 ../recsys_methods/colaborative_filtring/UserBased.h
-/home/blpadmin/git/blprecsys/recsys_methods/colaborative_filtring/UserBased.h
+/home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/UserBased.h
 
-/home/blpadmin/git/blprecsys/file_operation/Input.h
+/home/brunolaporais/git/blprecsys/file_operation/Input.h
 stdio.h
 -
 iostream
@@ -34,9 +36,9 @@ fstream
 iomanip
 -
 ../model/Dataset.h
-/home/blpadmin/git/blprecsys/model/Dataset.h
+/home/brunolaporais/git/blprecsys/model/Dataset.h
 
-/home/blpadmin/git/blprecsys/model/Dataset.h
+/home/brunolaporais/git/blprecsys/model/Dataset.h
 stdio.h
 -
 iostream
@@ -48,7 +50,7 @@ vector
 algorithm
 -
 
-/home/blpadmin/git/blprecsys/recsys_methods/Similarity.h
+/home/brunolaporais/git/blprecsys/recsys_methods/Similarity.h
 stdio.h
 -
 iostream
@@ -58,9 +60,9 @@ tr1/unordered_map
 cmath
 -
 ../model/Dataset.h
-/home/blpadmin/git/blprecsys/model/Dataset.h
+/home/brunolaporais/git/blprecsys/model/Dataset.h
 
-/home/blpadmin/git/blprecsys/recsys_methods/colaborative_filtring/UserBased.h
+/home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/ItemBased.h
 stdio.h
 -
 iostream
@@ -70,7 +72,21 @@ tr1/unordered_map
 cmath
 -
 ../../model/Dataset.h
-/home/blpadmin/git/blprecsys/model/Dataset.h
+/home/brunolaporais/git/blprecsys/model/Dataset.h
 ../Similarity.h
-/home/blpadmin/git/blprecsys/recsys_methods/Similarity.h
+/home/brunolaporais/git/blprecsys/recsys_methods/Similarity.h
+
+/home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/UserBased.h
+stdio.h
+-
+iostream
+-
+tr1/unordered_map
+-
+cmath
+-
+../../model/Dataset.h
+/home/brunolaporais/git/blprecsys/model/Dataset.h
+../Similarity.h
+/home/brunolaporais/git/blprecsys/recsys_methods/Similarity.h
 

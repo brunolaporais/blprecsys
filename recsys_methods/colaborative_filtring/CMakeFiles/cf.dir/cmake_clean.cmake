@@ -1,4 +1,5 @@
 FILE(REMOVE_RECURSE
+  "CMakeFiles/cf.dir/ItemBased.cpp.o"
   "CMakeFiles/cf.dir/UserBased.cpp.o"
   "libcf.pdb"
   "libcf.a"

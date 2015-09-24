@@ -23,6 +23,7 @@ public:
 	virtual ~Dataset();
 	void sortUserSimilarity(int usr);
 	void sortItemSimilarity(int item);
+	void targetMerge(Dataset &d);
 	void printSolution();
 	double itemAvg, usrAvg;
 	unordered_map<int,unordered_map<int,int> > ratingsByUser, ratingsByItem;

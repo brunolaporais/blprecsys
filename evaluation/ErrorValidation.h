@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include "../file_operation/Input.h"
 #include "../model/Dataset.h"
+#include "../recsys_methods/colaborative_filtring/ItemBased.h"
 #include "../recsys_methods/colaborative_filtring/UserBased.h"
 
 #ifndef VALIDATION_ERRORVALIDATION_H_

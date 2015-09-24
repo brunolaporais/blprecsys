@@ -1,8 +1,8 @@
 /*
- * userBased.h
+ * ItemBased.h
  *
- *  Created on: 22/09/2015
- *      Author: blpadmin
+ *  Created on: Sep 24, 2015
+ *      Author: brunolaporais
  */
 
 #include <stdio.h>
@@ -12,10 +12,8 @@
 #include "../../model/Dataset.h"
 #include "../Similarity.h"
 
-using namespace std;
-
-#ifndef RECSYS_METHODS_COLABORATIVE_FILTRING_USERBASED_H_
-#define RECSYS_METHODS_COLABORATIVE_FILTRING_USERBASED_H_
+#ifndef RECSYS_METHODS_ITEMBASED_H_
+#define RECSYS_METHODS_ITEMBASED_H_
 
 class ItemBased {
 public:
@@ -26,4 +24,4 @@ private:
 	Dataset &data;
 };
 
-#endif /* RECSYS_METHODS_COLABORATIVE_FILTRING_USERBASED_H_ */
+#endif /* RECSYS_METHODS_ITEMBASED_H_ */

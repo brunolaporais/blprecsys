@@ -16,7 +16,7 @@ Similarity::~Similarity() {
 }
 
 void Similarity::cosineByUser(int usr){
-	if(data.userSimilarity.find(usr) != data.userSimilarity.end()) return;
+	if(data.userSimilarity[usr].size() > 0) return;
 
 	double cosine, userDenominator;
 	unordered_map<int,double> numeratorCosineByUser;
@@ -54,12 +54,13 @@ void Similarity::cosineByUser(int usr){
 			cosine = itCalcCosine->second / (sqrt(userDenominator) * sqrt(denominatorCosineByUser[itCalcCosine->first]));
 		}
 		data.userSimilarity[usr][itCalcCosine->first] = cosine;
-		/*//Cosine test
-		 cout << itCalcCosine->first << " -> " << itCalcCosine->second
+		//Cosine test
+		/*cout << itCalcCosine->first << " -> " << itCalcCosine->second
 				<< "/(" << sqrt(userDenominator) << "*"
 				<< sqrt(denominatorCosineByUser[itCalcCosine->first]) << ") = ";
 		cout << cosine << "\n";*/
 	}
+	data.sortUserSimilarity(usr);
 }
 
 void Similarity::cosineByItem(int item){
@@ -107,4 +108,5 @@ void Similarity::cosineByItem(int item){
 				<< sqrt(denominatorCosineByItem[itCalcCosine->first]) << ") = ";
 		cout << cosine << "\n";*/
 	}
+	data.sortItemSimilarity(item);
 }

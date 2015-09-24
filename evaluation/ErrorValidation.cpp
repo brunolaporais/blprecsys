@@ -21,15 +21,20 @@ void ErrorValidation::rmseValidation(Dataset &correctData){
 	Dataset data;
 	/*Read data*/
 	Input inp(data,"ratings.csv","targets.csv");
-	UserBased ub(data);
-	for(int i = 1; i < 250; i++){
-		ub.predictTarget(i);
+	//UserBased ub(data);
+	ItemBased ib(data);
+	for(int i = 250; i < 1000; i++){
+		//ub.predictTarget(i);
+		ib.predictTarget(i);
 		rmse = 0;
+		n = 0;
 		for(auto itUsrTarget = data.targetData.begin(); itUsrTarget != data.targetData.end(); ++itUsrTarget){
 			for(auto itItemTarget = data.targetData[itUsrTarget->first].begin(); itItemTarget != data.targetData[itUsrTarget->first].end(); ++itItemTarget){
-				cout << itUsrTarget->first << ":" << itItemTarget->first << " ";
-				cout << rmse << "+=" << correctData.ratingsByUser[itUsrTarget->first][itItemTarget->first] << "-" << itItemTarget->second << "\n";
-				if(std::isnan(rmse)) getchar();
+				//if(abs(correctData.ratingsByUser[itUsrTarget->first][itItemTarget->first] - itItemTarget->second) > 1){
+					//cout << itUsrTarget->first << ":" << itItemTarget->first << " ";
+					//cout << rmse << "+=" << correctData.ratingsByUser[itUsrTarget->first][itItemTarget->first] << "-" << itItemTarget->second << "\n";
+				//}
+				//if(std::isnan(rmse)) getchar();
 				rmse += pow(correctData.ratingsByUser[itUsrTarget->first][itItemTarget->first] - itItemTarget->second,2);
 				++n;
 			}
@@ -37,7 +42,7 @@ void ErrorValidation::rmseValidation(Dataset &correctData){
 		rmse /= n;
 		rmse = sqrt(rmse);
 		cout << i << "-RMSE: " << rmse << "\n";
-		getchar();
+		//getchar();
 	}
 }
 
@@ -48,7 +53,7 @@ void ErrorValidation::targetsGenerate(Dataset &correctData){
 		if(n >= 80000) break;
 		for(auto itItemTarget = correctData.ratingsByUser[itUsrTarget->first].begin(); itItemTarget != correctData.ratingsByUser[itUsrTarget->first].end(); ++itItemTarget){
 			if(n >= 80000) break;
-			if((rand() % 10 + 1) > 5){
+			if((rand() % 10 + 1) > 7){
 				targetSelected[itUsrTarget->first][itItemTarget->first] = 0.0;
 				cout << "u";
 				cout.width(7);
