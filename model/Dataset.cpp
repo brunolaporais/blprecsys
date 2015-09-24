@@ -16,20 +16,54 @@ Dataset::~Dataset() {
 	// TODO Auto-generated destructor stub
 }
 
-void Dataset::cutSimilarityData(int usr, int nbNumbers){
-	unordered_map<int,double>::iterator itSims = similarityData[usr].begin();
+void Dataset::sortUserSimilarity(int usr){
+	unordered_map<int,double>::iterator itSims = userSimilarity[usr].begin();
 	vector<pair<int, double>> usrSim;
 
-	if(similarityData[usr].size() <= nbNumbers) return;
-
-	for (auto itSim = similarityData[usr].begin(); itSim != similarityData[usr].end(); ++itSim){
+	for (auto itSim = userSimilarity[usr].begin(); itSim != userSimilarity[usr].end(); ++itSim){
 		usrSim.push_back(*itSim);
 	}
 
 	sort(usrSim.begin(), usrSim.end(),[=](pair<int, double>& a, pair<int, double>& b){ return a.second > b.second;});
 
-	similarityData[usr].clear();
-	for(int i = 0; i < nbNumbers && i < usrSim.size(); ++i){
-		similarityData[usr].insert(usrSim[i]);
+	userSimilarity[usr].clear();
+	for(int i = 0;i < usrSim.size(); ++i){
+		userSimilarity[usr].insert(usrSim[i]);
+	}
+}
+
+void Dataset::sortItemSimilarity(int item){
+	unordered_map<int,double>::iterator itSims = itemSimilarity[item].begin();
+	vector<pair<int, double>> itemSim;
+
+	for (auto itSim = itemSimilarity[item].begin(); itSim != itemSimilarity[item].end(); ++itSim){
+		itemSim.push_back(*itSim);
+	}
+
+	sort(itemSim.begin(), itemSim.end(),[=](pair<int, double>& a, pair<int, double>& b){ return a.second > b.second;});
+
+	itemSimilarity[item].clear();
+	for(int i = 0;i < itemSim.size(); ++i){
+		itemSimilarity[item].insert(itemSim[i]);
+	}
+}
+
+void Dataset::printSolution(){
+	cout << "UserId:ItemId,Prediction\n";
+	for(auto itTargUsr = targetData.begin(); itTargUsr != targetData.end(); ++itTargUsr){
+		for(auto itTargItem = targetData[itTargUsr->first].begin(); itTargItem != targetData[itTargUsr->first].end(); ++itTargItem){
+			//Output submission
+			cout << "u";
+			cout.width(7);
+			cout.fill('0');
+			cout << itTargUsr->first;
+			cout.clear();
+			cout << ":i";
+			cout.width(7);
+			cout.fill('0');
+			cout << itTargItem->first;
+			cout.clear();
+			cout << "," << itTargItem->second << "\n";
+		}
 	}
 }

@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <tr1/unordered_map>
-#include <math.h>
+#include <cmath>
 #include "../model/Dataset.h"
 
 using namespace std;
@@ -22,7 +22,7 @@ public:
 	Similarity(Dataset &d);
 	virtual ~Similarity();
 	void cosineByUser(int usr);
-	unordered_map<int,double> cosineByItem();
+	void cosineByItem(int item);
 private:
 	Dataset &data;
 };

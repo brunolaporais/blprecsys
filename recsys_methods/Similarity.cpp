@@ -16,7 +16,7 @@ Similarity::~Similarity() {
 }
 
 void Similarity::cosineByUser(int usr){
-	if(data.similarityData.find(usr) != data.similarityData.end()) return;
+	if(data.userSimilarity.find(usr) != data.userSimilarity.end()) return;
 
 	double cosine, userDenominator;
 	unordered_map<int,double> numeratorCosineByUser;
@@ -53,7 +53,7 @@ void Similarity::cosineByUser(int usr){
 		if(itCalcCosine->second != 0){
 			cosine = itCalcCosine->second / (sqrt(userDenominator) * sqrt(denominatorCosineByUser[itCalcCosine->first]));
 		}
-		data.similarityData[usr][itCalcCosine->first] = cosine;
+		data.userSimilarity[usr][itCalcCosine->first] = cosine;
 		/*//Cosine test
 		 cout << itCalcCosine->first << " -> " << itCalcCosine->second
 				<< "/(" << sqrt(userDenominator) << "*"
@@ -62,6 +62,49 @@ void Similarity::cosineByUser(int usr){
 	}
 }
 
-unordered_map<int,double> Similarity::cosineByItem(){
+void Similarity::cosineByItem(int item){
+	if(data.itemSimilarity.find(item) != data.itemSimilarity.end()) return;
 
+	double cosine, itemDenominator;
+	unordered_map<int,double> numeratorCosineByItem;
+	unordered_map<int,double> denominatorCosineByItem;
+	unordered_map<int,double> cosineByItem;
+
+	unordered_map<int,int>::iterator itUsr = data.ratingsByItem[item].begin();
+	for(;itUsr != data.ratingsByItem[item].end(); ++itUsr){
+
+		unordered_map<int,int>::iterator itItem = data.ratingsByUser[itUsr->first].begin();
+		/*Denominator calculator for the item*/
+		itemDenominator += pow(itUsr->second - data.avgByItem[item],2);
+		for(;itItem != data.ratingsByUser[itUsr->first].end(); itItem++){
+			/*Denominator calculator*/
+			if(denominatorCosineByItem.find(itItem->first) == denominatorCosineByItem.end()){
+				unordered_map<int,int>::iterator itDenominator = data.ratingsByItem[itItem->first].begin();
+				for(;itDenominator != data.ratingsByItem[itItem->first].end(); ++itDenominator){
+					denominatorCosineByItem[itItem->first] += pow((itDenominator->second - data.avgByItem[itItem->first]),2);
+				}
+			}
+
+			/*Numerator calculator*/
+			if(numeratorCosineByItem.find(itItem->first) != numeratorCosineByItem.end()){
+				numeratorCosineByItem[itItem->first] += (itUsr->second - data.avgByItem[item]) * (itItem->second - data.avgByItem[itItem->first]);
+			} else {
+				numeratorCosineByItem[itItem->first] = (itUsr->second - data.avgByItem[item]) * (itItem->second - data.avgByItem[itItem->first]);
+			}
+		}
+	}
+
+	/*Atualiza Consine*/
+	unordered_map<int,double>::iterator itCalcCosine = numeratorCosineByItem.begin();
+	for(;itCalcCosine != numeratorCosineByItem.end(); ++itCalcCosine){
+		if(itCalcCosine->second != 0){
+			cosine = itCalcCosine->second / (sqrt(itemDenominator) * sqrt(denominatorCosineByItem[itCalcCosine->first]));
+		}
+		data.itemSimilarity[item][itCalcCosine->first] = cosine;
+		/*//Cosine test
+		 cout << itCalcCosine->first << " -> " << itCalcCosine->second
+				<< "/(" << sqrt(itemDenominator) << "*"
+				<< sqrt(denominatorCosineByItem[itCalcCosine->first]) << ") = ";
+		cout << cosine << "\n";*/
+	}
 }

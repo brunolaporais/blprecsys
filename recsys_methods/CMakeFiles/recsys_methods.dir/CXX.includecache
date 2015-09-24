@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/brunolaporais/git/blprecsys/model/Dataset.h
+/home/blpadmin/git/blprecsys/model/Dataset.h
 stdio.h
 -
 iostream
@@ -18,19 +18,19 @@ vector
 algorithm
 -
 
-/home/brunolaporais/git/blprecsys/recsys_methods/Similarity.cpp
+/home/blpadmin/git/blprecsys/recsys_methods/Similarity.cpp
 Similarity.h
-/home/brunolaporais/git/blprecsys/recsys_methods/Similarity.h
+/home/blpadmin/git/blprecsys/recsys_methods/Similarity.h
 
-/home/brunolaporais/git/blprecsys/recsys_methods/Similarity.h
+/home/blpadmin/git/blprecsys/recsys_methods/Similarity.h
 stdio.h
 -
 iostream
 -
 tr1/unordered_map
 -
-math.h
+cmath
 -
 ../model/Dataset.h
-/home/brunolaporais/git/blprecsys/model/Dataset.h
+/home/blpadmin/git/blprecsys/model/Dataset.h
 

@@ -5,17 +5,18 @@
  *      Author: blpadmin
  */
 
-#include "UserBased.h"
+#include "ItemBased.h"
 
-UserBased::UserBased(Dataset &d):data(d) {
+ItemBased::ItemBased(Dataset &d):data(d) {
 	// TODO Auto-generated constructor stub
 }
 
-UserBased::~UserBased() {
+ItemBased::~ItemBased() {
 	// TODO Auto-generated destructor stub
 }
 
-void UserBased::predictTarget(int nbNumbers){
+//Need to be done
+void ItemBased::predictTarget(int nbNumbers){
 	Similarity calcSim(data);
 	double rating, numerator = 0.0, denominator = 0.0;
 	int iterNum = 0;
@@ -28,7 +29,7 @@ void UserBased::predictTarget(int nbNumbers){
 			numerator = 0.0;
 			denominator = 0.0;
 
-			data.sortUserSimilarity(itTargUsr->first);
+			data.sortItemSimilarity(itTargUsr->first);
 			iterNum = 0;
 
 			unordered_map<int,double>::iterator itSim = data.userSimilarity[itTargUsr->first].begin();
@@ -52,7 +53,6 @@ void UserBased::predictTarget(int nbNumbers){
 				}
 				if(iterNum >= nbNumbers) break;
 			}
-			//cout << rating << "+=" << numerator << "/" << denominator << "\n";
 			if(numerator != 0){
 				rating += numerator / denominator;
 			}
@@ -67,8 +67,6 @@ void UserBased::predictTarget(int nbNumbers){
 
 			cout << rating << "\n";
 			data.targetData[itTargUsr->first][itTargItem->first] = rating;
-			if(std::isnan(rating)) getchar();
-			//if(itTargUsr->first == 15176 && itTargItem->first == 1119646) getchar();
 		}
 	}
 	data.printSolution();

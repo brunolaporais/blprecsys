@@ -21,11 +21,13 @@ class Dataset {
 public:
 	Dataset();
 	virtual ~Dataset();
-	void cutSimilarityData(int usr, int nbNumbers);
+	void sortUserSimilarity(int usr);
+	void sortItemSimilarity(int item);
+	void printSolution();
 	double itemAvg, usrAvg;
 	unordered_map<int,unordered_map<int,int> > ratingsByUser, ratingsByItem;
 	unordered_map<int, double> avgByUser, avgByItem;
-	unordered_map<int,unordered_map<int,double> > targetData, similarityData;
+	unordered_map<int,unordered_map<int,double> > targetData, userSimilarity, itemSimilarity;
 };
 
 #endif /* MODEL_DATA_H_ */

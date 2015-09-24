@@ -5,11 +5,10 @@
  *      Author: brunolaporais
  */
 
-#include "ErrorValidation.h"
+#include "../evaluation/ErrorValidation.h"
 
 ErrorValidation::ErrorValidation() {
 	// TODO Auto-generated constructor stub
-
 }
 
 ErrorValidation::~ErrorValidation() {
@@ -20,19 +19,25 @@ void ErrorValidation::rmseValidation(Dataset &correctData){
 	double rmse = 0.0;
 	int n = 0;
 	Dataset data;
+	/*Read data*/
+	Input inp(data,"ratings.csv","targets.csv");
+	UserBased ub(data);
 	for(int i = 1; i < 250; i++){
-		/*Read data*/
-		Input inp(data,"ratings.csv","targets.csv");
-		UserBased ub(data);
 		ub.predictTarget(i);
+		rmse = 0;
 		for(auto itUsrTarget = data.targetData.begin(); itUsrTarget != data.targetData.end(); ++itUsrTarget){
 			for(auto itItemTarget = data.targetData[itUsrTarget->first].begin(); itItemTarget != data.targetData[itUsrTarget->first].end(); ++itItemTarget){
+				cout << itUsrTarget->first << ":" << itItemTarget->first << " ";
+				cout << rmse << "+=" << correctData.ratingsByUser[itUsrTarget->first][itItemTarget->first] << "-" << itItemTarget->second << "\n";
+				if(std::isnan(rmse)) getchar();
 				rmse += pow(correctData.ratingsByUser[itUsrTarget->first][itItemTarget->first] - itItemTarget->second,2);
 				++n;
 			}
 		}
 		rmse /= n;
+		rmse = sqrt(rmse);
 		cout << i << "-RMSE: " << rmse << "\n";
+		getchar();
 	}
 }
 
