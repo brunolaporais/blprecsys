@@ -18,18 +18,36 @@ ErrorValidation::~ErrorValidation() {
 void ErrorValidation::rmseValidation(Dataset &correctData){
 	double rmse = 0.0;
 	int n = 0;
-	Dataset data;
+	Dataset dataUsr, dataItem;
 	/*Read data*/
-	Input inp(data,"ratings.csv","targets.csv");
-	//UserBased ub(data);
-	ItemBased ib(data);
-	for(int i = 250; i < 1000; i++){
-		//ub.predictTarget(i);
-		ib.predictTarget(i);
+	Input inpUsr(dataUsr,"ratings.csv","targets.csv");
+	Input inpItem(dataItem,"ratings.csv","targets.csv");
+	UserBased ub(dataUsr);
+	ItemBased ib(dataItem);
+	//for(int i = 250; i < 1000; i++){
+		ub.predictTarget(999999);
+		ib.predictTarget(30);
+		//dataItem.targetMerge(dataUsr, 200, 300);
 		rmse = 0;
 		n = 0;
-		for(auto itUsrTarget = data.targetData.begin(); itUsrTarget != data.targetData.end(); ++itUsrTarget){
-			for(auto itItemTarget = data.targetData[itUsrTarget->first].begin(); itItemTarget != data.targetData[itUsrTarget->first].end(); ++itItemTarget){
+		for(auto itUsrTarget = dataUsr.targetData.begin(); itUsrTarget != dataUsr.targetData.end(); ++itUsrTarget){
+			for(auto itItemTarget = dataUsr.targetData[itUsrTarget->first].begin(); itItemTarget != dataUsr.targetData[itUsrTarget->first].end(); ++itItemTarget){
+				if(abs(correctData.ratingsByUser[itUsrTarget->first][itItemTarget->first] - itItemTarget->second) >
+					abs(correctData.ratingsByUser[itUsrTarget->first][itItemTarget->first] - dataItem.targetData[itUsrTarget->first][itItemTarget->first])){
+					cout << "IB, " << itUsrTarget->first << "(" << dataUsr.avgByUser[itUsrTarget->first] << "/"
+							<< dataUsr.ratingsByUser[itUsrTarget->first].size() << "):"
+							<< itItemTarget->first << "(" << dataUsr.avgByItem[itItemTarget->first] << "/"
+							<< dataUsr.ratingsByItem[itItemTarget->first].size() << ") ";
+					cout << rmse << "+=" << correctData.ratingsByUser[itUsrTarget->first][itItemTarget->first] << "-";
+					cout << "(IB)" << dataItem.targetData[itUsrTarget->first][itItemTarget->first] << " ou (UB)" << itItemTarget->second  << "\n";
+				} else {
+					cout << "UB, " << itUsrTarget->first << "(" << dataUsr.avgByUser[itUsrTarget->first] << "/"
+							<< dataUsr.ratingsByUser[itUsrTarget->first].size() << "):"
+							<< itItemTarget->first << "(" << dataUsr.avgByItem[itItemTarget->first] << "/"
+							<< dataUsr.ratingsByItem[itItemTarget->first].size() << ") ";
+					cout << rmse << "+=" << correctData.ratingsByUser[itUsrTarget->first][itItemTarget->first] << "-";
+					cout << "(IB)" << dataItem.targetData[itUsrTarget->first][itItemTarget->first] << " ou (UB)" << itItemTarget->second  << "\n";
+				}
 				//if(abs(correctData.ratingsByUser[itUsrTarget->first][itItemTarget->first] - itItemTarget->second) > 1){
 					//cout << itUsrTarget->first << ":" << itItemTarget->first << " ";
 					//cout << rmse << "+=" << correctData.ratingsByUser[itUsrTarget->first][itItemTarget->first] << "-" << itItemTarget->second << "\n";
@@ -41,9 +59,9 @@ void ErrorValidation::rmseValidation(Dataset &correctData){
 		}
 		rmse /= n;
 		rmse = sqrt(rmse);
-		cout << i << "-RMSE: " << rmse << "\n";
+		//cout << i << "-RMSE: " << rmse << "\n";
 		//getchar();
-	}
+	//}
 }
 
 void ErrorValidation::targetsGenerate(Dataset &correctData){

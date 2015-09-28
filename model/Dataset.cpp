@@ -75,3 +75,14 @@ void Dataset::targetMerge(Dataset &d){
 		}
 	}
 }
+
+void Dataset::targetMerge(Dataset &d, int ibLimitInf, int ibLimitSup){
+	for(auto itTargUsr = targetData.begin(); itTargUsr != targetData.end(); ++itTargUsr){
+		for(auto itTargItem = targetData[itTargUsr->first].begin(); itTargItem != targetData[itTargUsr->first].end(); ++itTargItem){
+			if(ratingsByItem[itTargItem->first].size() < ibLimitInf &&
+					ratingsByItem[itTargItem->first].size() > ibLimitSup) {
+				targetData[itTargUsr->first][itTargItem->first] = d.targetData[itTargUsr->first][itTargItem->first];
+			}
+		}
+	}
+}

@@ -16,13 +16,13 @@ int main(int argc, char *argv[]) {
 	Input inpUsr(dataUsr, argv[1], argv[2]);
 	Input inpItem(dataItem, argv[1], argv[2]);
 
-	UserBased ub(dataUsr);
-	ub.predictTarget(1000);
-	ItemBased ib(dataItem);
-	ib.predictTarget(1000);
-	//ErrorValidation valid;
-	//valid.rmseValidation(data2);
+	//UserBased ub(dataUsr);
+	//ub.predictTarget(999999);
+	//ItemBased ib(dataItem);
+	//ib.predictTarget(30);
+	ErrorValidation valid;
+	valid.rmseValidation(dataUsr);
 	//valid.targetsGenerate(data2);
-	dataUsr.targetMerge(dataItem);
-	dataUsr.printSolution();
+	//dataUsr.targetMerge(dataItem, 100, 300);
+	//dataUsr.printSolution();
 }
