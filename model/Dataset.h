@@ -29,6 +29,7 @@ public:
 	double itemAvg, usrAvg;
 	unordered_map<int,unordered_map<int,int> > ratingsByUser, ratingsByItem;
 	unordered_map<int, double> avgByUser, avgByItem;
+	unordered_map<int, int> usrMatrixID, itemMatrixID;
 	unordered_map<int,unordered_map<int,double> > targetData, userSimilarity, itemSimilarity;
 };
 
