@@ -22,25 +22,31 @@ void ItemBased::predictTarget(int nbNumbers){
 	int iterNum = 0;
 	unordered_map<int,unordered_map<int,double> >::iterator itTargUsr = data.targetData.begin();
 	for(;itTargUsr != data.targetData.end(); ++itTargUsr){
-		calcSim.cosineByUser(itTargUsr->first);
 		unordered_map<int,double>::iterator itTargItem = data.targetData[itTargUsr->first].begin();
 		for(;itTargItem != data.targetData[itTargUsr->first].end(); ++itTargItem){
+			calcSim.cosineByItem(itTargItem->first);
+			data.avgByUser[itTargUsr->first];
 			numerator = 0.0;
 			denominator = 0.0;
 			iterNum = 0;
-
-			unordered_map<int,double>::iterator itSim = data.userSimilarity[itTargUsr->first].begin();
-			for(;itSim != data.userSimilarity[itTargUsr->first].end(); ++itSim){
-				if(data.ratingsByUser[itSim->first].find(itTargItem->first) != data.ratingsByUser[itSim->first].end()){
-					++iterNum;
-					numerator += itSim->second * data.ratingsByUser[itSim->first][itTargItem->first];
-					/*cout << itSim->second << "*("
-							<< data.ratingsByUser[itSim->first][itTargItem->first]
-							<< "-" << data.avgByUser[itTargUsr->first]
-							<< ")=" << numerator << "\n";*/
-					denominator += abs(itSim->second);
+			unordered_map<int,double>::iterator itSim = data.itemSimilarity[itTargItem->first].begin();
+			for(;itSim != data.itemSimilarity[itTargItem->first].end(); ++itSim){
+				if(data.ratingsByUser[itTargUsr->first].find(itSim->first) != data.ratingsByUser[itTargUsr->first].end()){
+					if(rating != 0){
+						++iterNum;
+						numerator += itSim->second * data.ratingsByItem[itSim->first][itTargUsr->first];
+						/*cout << itSim->second << "*("
+								<< data.ratingsByUser[itSim->first][itTargItem->first]
+								<< "-" << data.avgByUser[itTargUsr->first]
+								<< ")=" << numerator << "\n";*/
+						denominator += abs(itSim->second);
+					} else {
+						++iterNum;
+						numerator += itSim->second * data.ratingsByUser[itSim->first][itTargUsr->second[itTargItem->first]];
+						denominator += abs(itSim->second);
+					}
 				}
-				//if(iterNum >= nbNumbers) break;
+				if(iterNum >= nbNumbers) break;
 			}
 			if(numerator != 0){
 				rating += numerator / denominator;

@@ -52,7 +52,7 @@ void UserBased::predictTarget(int nbNumbers){
 					}
 				}
 
-				//if(iterNum >= nbNumbers) break; /*Had been wrost the solution*/
+				//if(iterNum >= nbNumbers) break; /*Had been worse the solution*/
 			}
 			//cout << rating << "+=" << numerator << "/" << denominator << "\n";
 			if(numerator != 0){
