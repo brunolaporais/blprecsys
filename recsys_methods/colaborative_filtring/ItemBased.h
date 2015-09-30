@@ -19,7 +19,7 @@ class ItemBased {
 public:
 	ItemBased(Dataset &d);
 	virtual ~ItemBased();
-	void predictTarget(int nbNumbers);
+	void predictTarget(int nbNumbers, int minItems, int minUsers);
 private:
 	Dataset &data;
 };

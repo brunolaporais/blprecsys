@@ -24,7 +24,7 @@ public:
 	void sortUserSimilarity(int usr);
 	void sortItemSimilarity(int item);
 	void targetMerge(Dataset &d);
-	void targetMerge(Dataset &d, int ibLimitInf, int ibLimitSup);
+	void targetMerge(Dataset &d, int mergeType);
 	void printSolution();
 	double itemAvg, usrAvg;
 	unordered_map<int,unordered_map<int,int> > ratingsByUser, ratingsByItem;

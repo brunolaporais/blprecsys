@@ -76,12 +76,21 @@ void Dataset::targetMerge(Dataset &d){
 	}
 }
 
-void Dataset::targetMerge(Dataset &d, int ibLimitInf, int ibLimitSup){
+/*
+ * targetMerge: Merge the results of item and user based.
+ * mergeType: 1 - Dataset in parameter is the item based, 2 - Otherwise.
+ */
+void Dataset::targetMerge(Dataset &data, int mergeType){
 	for(auto itTargUsr = targetData.begin(); itTargUsr != targetData.end(); ++itTargUsr){
 		for(auto itTargItem = targetData[itTargUsr->first].begin(); itTargItem != targetData[itTargUsr->first].end(); ++itTargItem){
-			if(ratingsByItem[itTargItem->first].size() < ibLimitInf &&
-					ratingsByItem[itTargItem->first].size() > ibLimitSup) {
-				targetData[itTargUsr->first][itTargItem->first] = d.targetData[itTargUsr->first][itTargItem->first];
+			if(mergeType == 1){
+				if(userSimilarity[itTargUsr->first].size() > data.itemSimilarity[itTargItem->first].size()) {
+					targetData[itTargUsr->first][itTargItem->first] = data.targetData[itTargUsr->first][itTargItem->first];
+				}
+			} else {
+				if(itemSimilarity[itTargUsr->first].size() > data.userSimilarity[itTargItem->first].size()) {
+					targetData[itTargUsr->first][itTargItem->first] = data.targetData[itTargUsr->first][itTargItem->first];
+				}
 			}
 		}
 	}

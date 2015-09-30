@@ -21,7 +21,7 @@ class UserBased {
 public:
 	UserBased(Dataset &d);
 	virtual ~UserBased();
-	void predictTarget(int nbNumbers);
+	void predictTarget(int nbNumbers, int minItems, int minUsers);
 private:
 	Dataset &data;
 };
