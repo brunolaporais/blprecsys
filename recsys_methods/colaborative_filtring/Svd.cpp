@@ -17,6 +17,6 @@ Svd::~Svd() {
 }
 
 void Svd::predictTarget(){
-	matrix<double> M(data.ratingsByUser.size(),data.ratingsByItem.size());
+
 
 }

@@ -60,7 +60,7 @@ void Similarity::cosineByUser(int usr){
 				<< sqrt(denominatorCosineByUser[itCalcCosine->first]) << ") = ";
 		cout << cosine << "\n";*/
 	}
-	data.sortUserSimilarity(usr);
+	//data.sortUserSimilarity(usr);
 }
 
 void Similarity::cosineByItem(int item){
@@ -108,5 +108,5 @@ void Similarity::cosineByItem(int item){
 				<< sqrt(denominatorCosineByItem[itCalcCosine->first]) << ") = ";
 		cout << cosine << "\n";*/
 	}
-	data.sortItemSimilarity(item);
+	//data.sortItemSimilarity(item);
 }

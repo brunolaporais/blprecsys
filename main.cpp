@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <stdio.h>
-
+#include <time.h>
 #include "evaluation/ErrorValidation.h"
 #include "file_operation/Input.h"
 #include "model/Dataset.h"
@@ -11,18 +11,32 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
+	time_t endTime;
+	time_t startTime;
+	struct tm * timeinfo;
+	time(&startTime);
 	Dataset dataUsr,dataItem;
-	/*Read data2*/
+	/*Read data*/
+	time(&startTime);
 	Input inpUsr(dataUsr, argv[1], argv[2]);
-	Input inpItem(dataItem, argv[1], argv[2]);
+	//Input inpItem(dataItem, argv[1], argv[2]);
+	time(&endTime);
+	endTime -= startTime;
+	//timeinfo = localtime(&endTime);
+	cerr << "Tempo de leitura: "<< endTime << "\n";
 
+	time(&startTime);
 	UserBased ub(dataUsr);
 	ub.predictTarget(999999);
 	//ItemBased ib(dataItem);
 	//ib.predictTarget(30);
-	//ErrorValidation valid;
-	//valid.rmseValidation(dataUsr);
+	ErrorValidation valid;
+	valid.compareValidation(dataUsr);
 	//valid.targetsGenerate(data2);
 	//dataUsr.targetMerge(dataItem, 100, 300);
-	dataUsr.printSolution();
+	//dataUsr.printSolution();
+	time(&endTime);
+	endTime -= startTime;
+	//timeinfo = localtime(&endTime);
+	cerr << "Tempo de Predição: "<< endTime << "\n";
 }

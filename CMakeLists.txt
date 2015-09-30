@@ -21,8 +21,6 @@ ADD_SUBDIRECTORY(model)
 ADD_SUBDIRECTORY(recsys_methods)
 ADD_SUBDIRECTORY(evaluation)
 
-include_directories ("${PROJECT_SOURCE_DIR}/lib")
-
 add_executable(recommender main.cpp)
 
 target_link_libraries(recommender model file_operation cf validation)

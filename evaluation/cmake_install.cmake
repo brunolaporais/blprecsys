@@ -1,4 +1,4 @@
-# Install script for directory: /home/brunolaporais/git/blprecsys/evaluation
+# Install script for directory: /home/blpadmin/git/blprecsys/evaluation
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)

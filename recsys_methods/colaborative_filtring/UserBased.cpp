@@ -6,6 +6,7 @@
  */
 
 #include "UserBased.h"
+#include <time.h>
 
 UserBased::UserBased(Dataset &d):data(d) {
 	// TODO Auto-generated constructor stub
@@ -16,12 +17,21 @@ UserBased::~UserBased() {
 }
 
 void UserBased::predictTarget(int nbNumbers){
+	time_t endTime;
+	time_t startTime;
 	Similarity calcSim(data);
 	double rating, numerator = 0.0, denominator = 0.0;
 	int iterNum = 0;
 	unordered_map<int,unordered_map<int,double> >::iterator itTargUsr = data.targetData.begin();
+
 	for(;itTargUsr != data.targetData.end(); ++itTargUsr){
+		time(&startTime);
 		calcSim.cosineByUser(itTargUsr->first);
+		time(&endTime);
+		endTime -= startTime;
+		//timeinfo = localtime(&endTime);
+		cerr << "Tempo do Cosseno: "<< endTime << "\n";
+
 		unordered_map<int,double>::iterator itTargItem = data.targetData[itTargUsr->first].begin();
 		for(;itTargItem != data.targetData[itTargUsr->first].end(); ++itTargItem){
 			rating = data.avgByUser[itTargUsr->first];
@@ -51,7 +61,6 @@ void UserBased::predictTarget(int nbNumbers){
 						denominator += abs(itSim->second);
 					}
 				}
-
 				//if(iterNum >= nbNumbers) break; /*Had been worse the solution*/
 			}
 			//cout << rating << "+=" << numerator << "/" << denominator << "\n";

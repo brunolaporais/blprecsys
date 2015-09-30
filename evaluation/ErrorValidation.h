@@ -20,6 +20,7 @@ class ErrorValidation {
 public:
 	ErrorValidation();
 	virtual ~ErrorValidation();
+	void compareValidation(Dataset &correctData);
 	void rmseValidation(Dataset &correctData);
 	void targetsGenerate(Dataset &correctData);
 	void ratingsGenerate(Dataset &correctData);

@@ -11,7 +11,6 @@
 #include <stdio.h>
 #include <iostream>
 #include <tr1/unordered_map>
-#include "../../lib/matrix/matrix.h"
 #include "../../model/Dataset.h"
 
 class Svd {
