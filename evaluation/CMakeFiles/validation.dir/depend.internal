@@ -8,4 +8,5 @@ evaluation/CMakeFiles/validation.dir/ErrorValidation.cpp.o
  /home/brunolaporais/git/blprecsys/model/Dataset.h
  /home/brunolaporais/git/blprecsys/recsys_methods/Similarity.h
  /home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/ItemBased.h
+ /home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/MatrixFact.h
  /home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/UserBased.h

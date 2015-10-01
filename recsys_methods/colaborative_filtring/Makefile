@@ -136,29 +136,29 @@ ItemBased.cpp.s:
 	cd /home/brunolaporais/git/blprecsys && $(MAKE) -f recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/build.make recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/ItemBased.cpp.s
 .PHONY : ItemBased.cpp.s
 
-Svd.o: Svd.cpp.o
-.PHONY : Svd.o
+MatrixFact.o: MatrixFact.cpp.o
+.PHONY : MatrixFact.o
 
 # target to build an object file
-Svd.cpp.o:
-	cd /home/brunolaporais/git/blprecsys && $(MAKE) -f recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/build.make recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/Svd.cpp.o
-.PHONY : Svd.cpp.o
+MatrixFact.cpp.o:
+	cd /home/brunolaporais/git/blprecsys && $(MAKE) -f recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/build.make recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/MatrixFact.cpp.o
+.PHONY : MatrixFact.cpp.o
 
-Svd.i: Svd.cpp.i
-.PHONY : Svd.i
+MatrixFact.i: MatrixFact.cpp.i
+.PHONY : MatrixFact.i
 
 # target to preprocess a source file
-Svd.cpp.i:
-	cd /home/brunolaporais/git/blprecsys && $(MAKE) -f recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/build.make recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/Svd.cpp.i
-.PHONY : Svd.cpp.i
+MatrixFact.cpp.i:
+	cd /home/brunolaporais/git/blprecsys && $(MAKE) -f recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/build.make recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/MatrixFact.cpp.i
+.PHONY : MatrixFact.cpp.i
 
-Svd.s: Svd.cpp.s
-.PHONY : Svd.s
+MatrixFact.s: MatrixFact.cpp.s
+.PHONY : MatrixFact.s
 
 # target to generate assembly for a file
-Svd.cpp.s:
-	cd /home/brunolaporais/git/blprecsys && $(MAKE) -f recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/build.make recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/Svd.cpp.s
-.PHONY : Svd.cpp.s
+MatrixFact.cpp.s:
+	cd /home/brunolaporais/git/blprecsys && $(MAKE) -f recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/build.make recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/MatrixFact.cpp.s
+.PHONY : MatrixFact.cpp.s
 
 UserBased.o: UserBased.cpp.o
 .PHONY : UserBased.o
@@ -196,9 +196,9 @@ help:
 	@echo "... ItemBased.o"
 	@echo "... ItemBased.i"
 	@echo "... ItemBased.s"
-	@echo "... Svd.o"
-	@echo "... Svd.i"
-	@echo "... Svd.s"
+	@echo "... MatrixFact.o"
+	@echo "... MatrixFact.i"
+	@echo "... MatrixFact.s"
 	@echo "... UserBased.o"
 	@echo "... UserBased.i"
 	@echo "... UserBased.s"

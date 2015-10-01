@@ -25,6 +25,8 @@ stdio.h
 /home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/ItemBased.h
 ../recsys_methods/colaborative_filtring/UserBased.h
 /home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/UserBased.h
+../recsys_methods/colaborative_filtring/MatrixFact.h
+/home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/MatrixFact.h
 
 /home/brunolaporais/git/blprecsys/file_operation/Input.h
 stdio.h
@@ -75,6 +77,12 @@ cmath
 /home/brunolaporais/git/blprecsys/model/Dataset.h
 ../Similarity.h
 /home/brunolaporais/git/blprecsys/recsys_methods/Similarity.h
+
+/home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/MatrixFact.h
+tr1/unordered_map
+-
+../../model/Dataset.h
+/home/brunolaporais/git/blprecsys/model/Dataset.h
 
 /home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/UserBased.h
 stdio.h

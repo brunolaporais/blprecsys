@@ -6,9 +6,9 @@ recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/ItemBased.cpp.o: recsys_m
 recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/ItemBased.cpp.o: recsys_methods/colaborative_filtring/ItemBased.cpp
 recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/ItemBased.cpp.o: recsys_methods/colaborative_filtring/ItemBased.h
 
-recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/Svd.cpp.o: model/Dataset.h
-recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/Svd.cpp.o: recsys_methods/colaborative_filtring/Svd.cpp
-recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/Svd.cpp.o: recsys_methods/colaborative_filtring/Svd.h
+recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/MatrixFact.cpp.o: model/Dataset.h
+recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/MatrixFact.cpp.o: recsys_methods/colaborative_filtring/MatrixFact.cpp
+recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/MatrixFact.cpp.o: recsys_methods/colaborative_filtring/MatrixFact.h
 
 recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/UserBased.cpp.o: model/Dataset.h
 recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/UserBased.cpp.o: recsys_methods/Similarity.h

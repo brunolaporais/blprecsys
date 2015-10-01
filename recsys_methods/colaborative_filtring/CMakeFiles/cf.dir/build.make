@@ -72,32 +72,9 @@ recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/ItemBased.cpp.o.provides:
 
 recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/ItemBased.cpp.o.provides.build: recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/ItemBased.cpp.o
 
-recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/Svd.cpp.o: recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/flags.make
-recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/Svd.cpp.o: recsys_methods/colaborative_filtring/Svd.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/brunolaporais/git/blprecsys/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/Svd.cpp.o"
-	cd /home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cf.dir/Svd.cpp.o -c /home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/Svd.cpp
-
-recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/Svd.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cf.dir/Svd.cpp.i"
-	cd /home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/Svd.cpp > CMakeFiles/cf.dir/Svd.cpp.i
-
-recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/Svd.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cf.dir/Svd.cpp.s"
-	cd /home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/Svd.cpp -o CMakeFiles/cf.dir/Svd.cpp.s
-
-recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/Svd.cpp.o.requires:
-.PHONY : recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/Svd.cpp.o.requires
-
-recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/Svd.cpp.o.provides: recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/Svd.cpp.o.requires
-	$(MAKE) -f recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/build.make recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/Svd.cpp.o.provides.build
-.PHONY : recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/Svd.cpp.o.provides
-
-recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/Svd.cpp.o.provides.build: recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/Svd.cpp.o
-
 recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/UserBased.cpp.o: recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/flags.make
 recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/UserBased.cpp.o: recsys_methods/colaborative_filtring/UserBased.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/brunolaporais/git/blprecsys/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/brunolaporais/git/blprecsys/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/UserBased.cpp.o"
 	cd /home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cf.dir/UserBased.cpp.o -c /home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/UserBased.cpp
 
@@ -118,18 +95,41 @@ recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/UserBased.cpp.o.provides:
 
 recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/UserBased.cpp.o.provides.build: recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/UserBased.cpp.o
 
+recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/MatrixFact.cpp.o: recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/flags.make
+recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/MatrixFact.cpp.o: recsys_methods/colaborative_filtring/MatrixFact.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/brunolaporais/git/blprecsys/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/MatrixFact.cpp.o"
+	cd /home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/cf.dir/MatrixFact.cpp.o -c /home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/MatrixFact.cpp
+
+recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/MatrixFact.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cf.dir/MatrixFact.cpp.i"
+	cd /home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/MatrixFact.cpp > CMakeFiles/cf.dir/MatrixFact.cpp.i
+
+recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/MatrixFact.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cf.dir/MatrixFact.cpp.s"
+	cd /home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/MatrixFact.cpp -o CMakeFiles/cf.dir/MatrixFact.cpp.s
+
+recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/MatrixFact.cpp.o.requires:
+.PHONY : recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/MatrixFact.cpp.o.requires
+
+recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/MatrixFact.cpp.o.provides: recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/MatrixFact.cpp.o.requires
+	$(MAKE) -f recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/build.make recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/MatrixFact.cpp.o.provides.build
+.PHONY : recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/MatrixFact.cpp.o.provides
+
+recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/MatrixFact.cpp.o.provides.build: recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/MatrixFact.cpp.o
+
 # Object files for target cf
 cf_OBJECTS = \
 "CMakeFiles/cf.dir/ItemBased.cpp.o" \
-"CMakeFiles/cf.dir/Svd.cpp.o" \
-"CMakeFiles/cf.dir/UserBased.cpp.o"
+"CMakeFiles/cf.dir/UserBased.cpp.o" \
+"CMakeFiles/cf.dir/MatrixFact.cpp.o"
 
 # External object files for target cf
 cf_EXTERNAL_OBJECTS =
 
 recsys_methods/colaborative_filtring/libcf.a: recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/ItemBased.cpp.o
-recsys_methods/colaborative_filtring/libcf.a: recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/Svd.cpp.o
 recsys_methods/colaborative_filtring/libcf.a: recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/UserBased.cpp.o
+recsys_methods/colaborative_filtring/libcf.a: recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/MatrixFact.cpp.o
 recsys_methods/colaborative_filtring/libcf.a: recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/build.make
 recsys_methods/colaborative_filtring/libcf.a: recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX static library libcf.a"
@@ -141,8 +141,8 @@ recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/build: recsys_methods/col
 .PHONY : recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/build
 
 recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/requires: recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/ItemBased.cpp.o.requires
-recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/requires: recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/Svd.cpp.o.requires
 recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/requires: recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/UserBased.cpp.o.requires
+recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/requires: recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/MatrixFact.cpp.o.requires
 .PHONY : recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/requires
 
 recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/clean:

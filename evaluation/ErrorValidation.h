@@ -12,6 +12,7 @@
 #include "../model/Dataset.h"
 #include "../recsys_methods/colaborative_filtring/ItemBased.h"
 #include "../recsys_methods/colaborative_filtring/UserBased.h"
+#include "../recsys_methods/colaborative_filtring/MatrixFact.h"
 
 #ifndef VALIDATION_ERRORVALIDATION_H_
 #define VALIDATION_ERRORVALIDATION_H_

@@ -33,7 +33,7 @@ void ItemBased::predictTarget(int nbNumbers, int minItems, int minUsers){
 				rating = data.avgByUser[itTargUsr->first];
 			} else {
 				calcSim.cosineByItem(itTargItem->first);
-				rating = data.avgByUser[itTargUsr->first];
+				rating = 0;
 				numerator = 0.0;
 				denominator = 0.0;
 				iterNum = 0;
@@ -51,7 +51,7 @@ void ItemBased::predictTarget(int nbNumbers, int minItems, int minUsers){
 					if(iterNum >= nbNumbers) break;
 				}
 				if(numerator != 0) {
-					rating += numerator / denominator;
+					rating = numerator / denominator;
 				}
 			}
 			if(rating > 10) rating = 10;

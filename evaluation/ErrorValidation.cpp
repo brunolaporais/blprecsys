@@ -21,11 +21,13 @@ void ErrorValidation::compareValidation(Dataset &correctData){
 	Dataset dataUsr, dataItem;
 	/*Read data*/
 	Input inpUsr(dataUsr,"ratings.csv","targets.csv");
-	Input inpItem(dataItem,"ratings.csv","targets.csv");
-	UserBased ub(dataUsr);
-	ItemBased ib(dataItem);
+	//Input inpItem(dataItem,"ratings.csv","targets.csv");
+	//UserBased ub(dataUsr);
+	MatrixFact mf(dataUsr,30);
+	//ItemBased ib(dataItem);
 	//for(int i = 250; i < 1000; i++){
-		ub.predictTarget(999999, 5, 15);
+		mf.predictTarget(10,0.0002,0.02);
+		//ub.predictTarget(999999, 5, 15);
 		//ib.predictTarget(30, 5, 15);
 		//dataUsr.targetMerge(dataItem, 1);
 		rmse = 0;
