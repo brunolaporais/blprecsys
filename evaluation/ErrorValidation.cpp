@@ -25,7 +25,7 @@ void ErrorValidation::compareValidation(Dataset &correctData){
 	UserBased ub(dataUsr);
 	//MatrixFact mf(dataUsr,30);
 	//ItemBased ib(dataItem);
-	for(int i = 250; i < 1000; i++){
+	for(int i = 1; i < 1000; i++){
 		//mf.predictTarget(10,0.0002,0.02);
 		ub.predictTarget(i, 5, 15);
 		//ib.predictTarget(30, 5, 15);
