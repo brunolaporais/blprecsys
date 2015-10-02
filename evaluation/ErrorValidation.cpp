@@ -22,12 +22,12 @@ void ErrorValidation::compareValidation(Dataset &correctData){
 	/*Read data*/
 	Input inpUsr(dataUsr,"ratings.csv","targets.csv");
 	//Input inpItem(dataItem,"ratings.csv","targets.csv");
-	//UserBased ub(dataUsr);
-	MatrixFact mf(dataUsr,30);
+	UserBased ub(dataUsr);
+	//MatrixFact mf(dataUsr,30);
 	//ItemBased ib(dataItem);
-	//for(int i = 250; i < 1000; i++){
-		mf.predictTarget(10,0.0002,0.02);
-		//ub.predictTarget(999999, 5, 15);
+	for(int i = 250; i < 1000; i++){
+		//mf.predictTarget(10,0.0002,0.02);
+		ub.predictTarget(i, 5, 15);
 		//ib.predictTarget(30, 5, 15);
 		//dataUsr.targetMerge(dataItem, 1);
 		rmse = 0;
@@ -51,7 +51,7 @@ void ErrorValidation::compareValidation(Dataset &correctData){
 					cout << rmse << "+=" << correctData.ratingsByUser[itUsrTarget->first][itItemTarget->first] << "-";
 					cout << "(IB)" << dataItem.targetData[itUsrTarget->first][itItemTarget->first] << " ou (UB)" << itItemTarget->second  << "\n";
 				}*/
-				if(abs(correctData.ratingsByUser[itUsrTarget->first][itItemTarget->first] - itItemTarget->second) > 2){
+				/*if(abs(correctData.ratingsByUser[itUsrTarget->first][itItemTarget->first] - itItemTarget->second) > 2){
 					++count;
 					cout << count << " - "
 						<< "u" << itUsrTarget->first << "(mu" << dataUsr.avgByUser[itUsrTarget->first]
@@ -62,7 +62,7 @@ void ErrorValidation::compareValidation(Dataset &correctData){
 						<< "|s|" << dataItem.itemSimilarity[itItemTarget->first].size() << ")";
 					cout << rmse << "+=" << correctData.ratingsByUser[itUsrTarget->first][itItemTarget->first] << "-";
 					cout << "(IB)" << dataItem.targetData[itUsrTarget->first][itItemTarget->first] << " ou (UB)" << itItemTarget->second  << "\n";
-				}
+				}*/
 				//if(std::isnan(rmse)) getchar();
 				rmse += pow(correctData.ratingsByUser[itUsrTarget->first][itItemTarget->first] - itItemTarget->second,2);
 				++n;
@@ -70,9 +70,9 @@ void ErrorValidation::compareValidation(Dataset &correctData){
 		}
 		rmse /= n;
 		rmse = sqrt(rmse);
-		cout << "RMSE: " << rmse << "\n";
+		cout << i << "-RMSE: " << rmse << "\n";
 		//getchar();
-	//}
+	}
 }
 
 void ErrorValidation::rmseValidation(Dataset &correctData){
