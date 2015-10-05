@@ -48,7 +48,7 @@ void ItemBased::predictTarget(int nbNumbers, int minItems, int minUsers){
 						denominator += abs(itSim->second);
 						++iterNum;
 					}
-					if(iterNum >= nbNumbers) break;
+					if(iterNum >= nbNumbers && nbNumbers > 0) break;
 				}
 				if(numerator != 0) {
 					rating = numerator / denominator;

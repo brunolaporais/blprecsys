@@ -27,20 +27,20 @@ int main(int argc, char *argv[]) {
 	time(&startTime);
 
 	/*Prediction*/
-	//UserBased ub(dataUsr);
-	//ub.predictTarget(999999, 5, 10);
+	UserBased ub(dataUsr);
+	ub.predictTarget(999999, 5, 10);
 	//ItemBased ib(dataItem);
 	//ib.predictTarget(30);
-	//dataUsr.printSolution();
+	dataUsr.printSolution();
 
 	/*Validation*/
-	ErrorValidation valid;
-	valid.compareValidation(dataUsr);
+	//ErrorValidation valid;
+	//valid.compareValidation(dataUsr);
 	//valid.targetsGenerate(dataItem);
 	//dataUsr.targetMerge(dataItem, 100, 300);
 
 	time(&endTime);
 	endTime -= startTime;
 	//timeinfo = localtime(&endTime);
-	//cerr << "Tempo de Predição: "<< endTime << "\n";
+	cerr << "Tempo de Predição: "<< endTime << "\n";
 }
