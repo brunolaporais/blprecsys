@@ -18,8 +18,8 @@ int main(int argc, char *argv[]) {
 	Dataset dataUsr,dataItem;
 	/*Read data*/
 	time(&startTime);
-	Input inpUsr(dataUsr, argv[1], argv[2]);
-	//Input inpItem(dataItem, argv[1], argv[2]);
+	//Input inpUsr(dataUsr, argv[1], argv[2]);
+	Input inpItem(dataUsr, argv[1], argv[2]);
 	time(&endTime);
 	endTime -= startTime;
 	//timeinfo = localtime(&endTime);
@@ -28,9 +28,9 @@ int main(int argc, char *argv[]) {
 
 	/*Prediction*/
 	UserBased ub(dataUsr);
-	ub.predictTarget(999999, 5, 10);
-	//ItemBased ib(dataItem);
-	//ib.predictTarget(30);
+	ub.predictTarget(0, 10, 8);
+	//ItemBased ib(dataUsr);
+	//ib.predictTarget(0, 10, 40);
 	dataUsr.printSolution();
 
 	/*Validation*/
