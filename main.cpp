@@ -14,14 +14,14 @@ int main(int argc, char *argv[]) {
 	time_t endTime;
 	time_t startTime;
 	struct tm * timeinfo;
-	time(&startTime);
+	//time(&startTime);
 	Dataset dataUsr,dataItem;
 	/*Read data*/
-	time(&startTime);
-	//Input inpUsr(dataUsr, argv[1], argv[2]);
-	Input inpItem(dataUsr, argv[1], argv[2]);
-	time(&endTime);
-	endTime -= startTime;
+	//time(&startTime);
+	Input inpUsr(dataUsr, argv[1], argv[2]);
+	//Input inpItem(dataUsr, argv[1], argv[2]);
+	//time(&endTime);
+	//endTime -= startTime;
 	//timeinfo = localtime(&endTime);
 	//cerr << "Tempo de leitura: "<< endTime << "\n";
 	time(&startTime);
@@ -39,8 +39,8 @@ int main(int argc, char *argv[]) {
 	//valid.targetsGenerate(dataItem);
 	//dataUsr.targetMerge(dataItem, 100, 300);
 
-	time(&endTime);
-	endTime -= startTime;
+	//time(&endTime);
+	//endTime -= startTime;
 	//timeinfo = localtime(&endTime);
-	cerr << "Tempo de Predição: "<< endTime << "\n";
+	//cerr << "Tempo de Predição: "<< endTime << "\n";
 }
