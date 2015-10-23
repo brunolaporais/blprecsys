@@ -7,4 +7,4 @@ file(GLOB model_SRC
 
 
 ADD_LIBRARY( model ${model_SRC})
-target_link_libraries(model)
+target_link_libraries(model lib util)

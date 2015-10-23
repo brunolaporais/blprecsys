@@ -13,6 +13,14 @@ Input::Input(Dataset &d, string rating, string target):data(d) {
 	readRatings();
 	readTargets();
 }
+Input::Input(Dataset &d, string rating, string target, string content):data(d) {
+	ratingFile = rating;
+	targetFile = target;
+	contentFile = content;
+	readRatings();
+	readTargets();
+	readContents();
+}
 
 Input::~Input() {
 }
@@ -96,6 +104,25 @@ void Input::readTargets(){
 
 			/*Insert new target*/
 			data.targetData[usr][item] = 0.0;
+		}
+		inFile.close();
+	}
+}
+
+void Input::readContents(){
+	ifstream inFile(contentFile, ios::in | ios::app | ios::binary);
+	string line, json;
+	int item;
+	if(inFile.is_open()){
+		getline(inFile, line);
+		while(getline(inFile, line)){
+			if(line.empty()){
+				break;
+			}
+			item = stoi(line.substr(1,line.find(",") - 1));
+			json = line.substr(line.find(",")+1,line.size());
+			/*Insert new content*/
+			data.itemContent[item] = Item(json);
 		}
 		inFile.close();
 	}

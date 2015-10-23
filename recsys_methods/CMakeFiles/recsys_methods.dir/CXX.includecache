@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+/home/brunolaporais/git/blprecsys/lib/json.h
+vector
+-
+map
+-
+string
+-
+stdexcept
+-
+
 /home/brunolaporais/git/blprecsys/model/Dataset.h
 stdio.h
 -
@@ -17,6 +27,20 @@ vector
 -
 algorithm
 -
+Item.h
+/home/brunolaporais/git/blprecsys/model/Item.h
+
+/home/brunolaporais/git/blprecsys/model/Item.h
+iostream
+-
+stdio.h
+-
+vector
+-
+../lib/json.h
+/home/brunolaporais/git/blprecsys/lib/json.h
+../util/Help.h
+/home/brunolaporais/git/blprecsys/util/Help.h
 
 /home/brunolaporais/git/blprecsys/recsys_methods/Similarity.cpp
 Similarity.h
@@ -33,4 +57,12 @@ cmath
 -
 ../model/Dataset.h
 /home/brunolaporais/git/blprecsys/model/Dataset.h
+
+/home/brunolaporais/git/blprecsys/util/Help.h
+vector
+-
+iostream
+-
+stdio.h
+-
 

@@ -11,6 +11,8 @@
 #include <vector>
 #include <algorithm>
 
+#include "Item.h"
+
 using namespace std;
 using namespace std::tr1;
 
@@ -31,6 +33,7 @@ public:
 	unordered_map<int, double> avgByUser, avgByItem;
 	unordered_map<int, int> usrMatrixID, itemMatrixID;
 	unordered_map<int,unordered_map<int,double> > targetData, userSimilarity, itemSimilarity;
+	unordered_map<int, Item> itemContent;
 };
 
 #endif /* MODEL_DATA_H_ */

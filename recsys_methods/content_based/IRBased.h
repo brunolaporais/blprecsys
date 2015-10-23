@@ -1,0 +1,29 @@
+/*
+ * IRBased.h
+ *
+ *  Created on: 23/10/2015
+ *      Author: blpadmin
+ */
+
+#include <stdio.h>
+#include <iostream>
+#include <tr1/unordered_map>
+#include <cmath>
+#include "../../model/Dataset.h"
+#include "../Similarity.h"
+
+using namespace std;
+
+#ifndef RECSYS_METHODS_CONTENT_BASED_IRBASED_H_
+#define RECSYS_METHODS_CONTENT_BASED_IRBASED_H_
+
+class IRBased {
+public:
+	IRBased(Dataset &d);
+	virtual ~IRBased();
+	void predictTarget();
+private:
+	Dataset &data;
+};
+
+#endif /* RECSYS_METHODS_COLABORATIVE_FILTRING_USERBASED_H_ */

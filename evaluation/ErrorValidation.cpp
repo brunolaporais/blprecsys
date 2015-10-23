@@ -54,8 +54,8 @@ void ErrorValidation::rmseValidation(Dataset &correctData){
 	int n = 0;
 	Dataset dataUsr, dataItem;
 	/*Read data*/
-	Input inpUsr(dataUsr,"ratings.csv","targets.csv");
-	Input inpItem(dataItem,"ratings.csv","targets.csv");
+	Input inpUsr(dataUsr,"ratings.csv","targets.csv", "content.csv");
+	Input inpItem(dataItem,"ratings.csv","targets.csv", "content.csv");
 	UserBased ub(dataUsr);
 	ItemBased ib(dataItem);
 	//for(int i = 250; i < 1000; i++){

@@ -1,5 +1,5 @@
 /*
- * userBased.h
+ * UserBased.h
  *
  *  Created on: 22/09/2015
  *      Author: blpadmin

@@ -1,4 +1,4 @@
-# CmakeLists.txt in Controller dir
+# CmakeLists.txt in model dir
 
 file(GLOB model_SRC
     "*.h"
@@ -6,5 +6,5 @@ file(GLOB model_SRC
 )
 
 
-ADD_LIBRARY( model ${control_SRC})
+ADD_LIBRARY( model ${model_SRC})
 target_link_libraries(model)

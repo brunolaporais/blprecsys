@@ -11,27 +11,27 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
-	time_t endTime;
-	time_t startTime;
-	struct tm * timeinfo;
+	//time_t endTime;
+	//time_t startTime;
+	//struct tm * timeinfo;
 	//time(&startTime);
-	Dataset dataUsr,dataItem;
+	//Dataset dataUsr,dataItem;
 	/*Read data*/
 	//time(&startTime);
-	Input inpUsr(dataUsr, argv[1], argv[2]);
+	//Input inpUsr(dataUsr, argv[1], argv[2]);
 	//Input inpItem(dataUsr, argv[1], argv[2]);
 	//time(&endTime);
 	//endTime -= startTime;
 	//timeinfo = localtime(&endTime);
 	//cerr << "Tempo de leitura: "<< endTime << "\n";
-	time(&startTime);
+	//time(&startTime);
 
 	/*Prediction*/
-	UserBased ub(dataUsr);
-	ub.predictTarget(0, 10, 8);
+	//UserBased ub(dataUsr);
+	//ub.predictTarget(0, 10, 8);
 	//ItemBased ib(dataUsr);
 	//ib.predictTarget(0, 10, 40);
-	dataUsr.printSolution();
+	//dataUsr.printSolution();
 
 	/*Validation*/
 	//ErrorValidation valid;
@@ -43,4 +43,10 @@ int main(int argc, char *argv[]) {
 	//endTime -= startTime;
 	//timeinfo = localtime(&endTime);
 	//cerr << "Tempo de Predição: "<< endTime << "\n";
+
+	/*
+	 * Testing Content Based
+	 * */
+	Dataset dataIR;
+	Input inpIR(dataIR, argv[1], argv[2], argv[3]);
 }

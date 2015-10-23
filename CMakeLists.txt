@@ -12,15 +12,13 @@ SET(CMAKE_BUILD_TYPE Release)
 
 SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY "")
 
-SET(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} "/usr/local/include/")
-SET(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "/usr/include/")
-SET(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "/usr/local/lib")
-
+ADD_SUBDIRECTORY(lib)
 ADD_SUBDIRECTORY(file_operation)
 ADD_SUBDIRECTORY(model)
 ADD_SUBDIRECTORY(recsys_methods)
 ADD_SUBDIRECTORY(evaluation)
+ADD_SUBDIRECTORY(util)
 
 add_executable(recommender main.cpp)
 
-target_link_libraries(recommender model file_operation cf validation)
+target_link_libraries(recommender model file_operation cf cb validation)

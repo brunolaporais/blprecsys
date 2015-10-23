@@ -20,12 +20,13 @@ using namespace std;
 class Input {
 public:
 	Input(Dataset &d, string rating, string target);
+	Input(Dataset &d, string rating, string target, string content);
 	virtual ~Input();
 	void readRatings();
 	void readTargets();
+	void readContents();
 private:
-	string ratingFile;
-	string targetFile;
+	string ratingFile, targetFile, contentFile;
 	Dataset &data;
 };
 
