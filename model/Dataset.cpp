@@ -116,8 +116,8 @@ void Dataset::insertItem(int itemId, Item auxItem){
 	}
 	allText.append(auxItem.title);
 	allText.append(" ");
-	//allText.append(auxItem.rated);
-	//allText.append(" ");
+	allText.append(auxItem.rated);
+	allText.append(" ");
 	allText.append(auxItem.released);
 	allText.append(" ");
 	allText.append(auxItem.writer);
