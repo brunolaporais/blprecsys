@@ -25,6 +25,7 @@ public:
 	void readRatings();
 	void readTargets();
 	void readContents();
+	void loadStopWords();
 private:
 	string ratingFile, targetFile, contentFile;
 	Dataset &data;

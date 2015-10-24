@@ -1,2 +1,2 @@
-/usr/bin/ar cr libcf.a  CMakeFiles/cf.dir/ItemBased.cpp.o CMakeFiles/cf.dir/UserBased.cpp.o CMakeFiles/cf.dir/MatrixFact.cpp.o
+/usr/bin/ar cr libcf.a  CMakeFiles/cf.dir/UserBased.cpp.o CMakeFiles/cf.dir/ItemBased.cpp.o CMakeFiles/cf.dir/MatrixFact.cpp.o
 /usr/bin/ranlib libcf.a

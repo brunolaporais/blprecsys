@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/brunolaporais/git/blprecsys/lib/json.cpp
+/home/blpadmin/git/blprecsys/lib/json.cpp
 json.h
-/home/brunolaporais/git/blprecsys/lib/json.h
+/home/blpadmin/git/blprecsys/lib/json.h
 stdlib.h
 -
 string
@@ -32,7 +32,7 @@ stack
 cerrno
 -
 
-/home/brunolaporais/git/blprecsys/lib/json.h
+/home/blpadmin/git/blprecsys/lib/json.h
 vector
 -
 map

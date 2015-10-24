@@ -2,11 +2,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+
 #include "evaluation/ErrorValidation.h"
 #include "file_operation/Input.h"
 #include "model/Dataset.h"
 #include "recsys_methods/colaborative_filtring/ItemBased.h"
 #include "recsys_methods/colaborative_filtring/UserBased.h"
+#include "recsys_methods/content_based/TfIdfBased.h"
 
 using namespace std;
 
@@ -18,8 +20,8 @@ int main(int argc, char *argv[]) {
 	//Dataset dataUsr,dataItem;
 	/*Read data*/
 	//time(&startTime);
-	//Input inpUsr(dataUsr, argv[1], argv[2]);
-	//Input inpItem(dataUsr, argv[1], argv[2]);
+	//Input inpUsr(dataUsr, argv[2], argv[3]);
+	//Input inpItem(dataUsr, argv[2], argv[3]);
 	//time(&endTime);
 	//endTime -= startTime;
 	//timeinfo = localtime(&endTime);
@@ -47,6 +49,9 @@ int main(int argc, char *argv[]) {
 	/*
 	 * Testing Content Based
 	 * */
-	Dataset dataIR;
-	Input inpIR(dataIR, argv[1], argv[2], argv[3]);
+	Dataset dataRb;
+	Input inpRb(dataRb, argv[2], argv[3], argv[1]);
+	TfIdfBased rb(dataRb);
+	rb.predictTarget(0, 10, 8);
+	dataRb.printSolution();
 }

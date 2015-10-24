@@ -95,3 +95,49 @@ void Dataset::targetMerge(Dataset &data, int mergeType){
 		}
 	}
 }
+
+/*
+ * indexItem: Index the terms on item and update the user model
+ */
+void Dataset::insertItem(int itemId, Item auxItem){
+	string allText;
+	itemContent[itemId] = auxItem;
+	for(string s : auxItem.genre){
+		allText.append(s);
+		allText.append(" ");
+	}
+	for(string s : auxItem.actors){
+		allText.append(s);
+		allText.append(" ");
+	}
+	for(string s : auxItem.director){
+		allText.append(s);
+		allText.append(" ");
+	}
+	allText.append(auxItem.title);
+	allText.append(" ");
+	//allText.append(auxItem.rated);
+	//allText.append(" ");
+	allText.append(auxItem.released);
+	allText.append(" ");
+	allText.append(auxItem.writer);
+	allText.append(" ");
+	//allText.append(auxItem.plot);
+	//allText.append(" ");
+	allText.append(auxItem.language);
+	allText.append(" ");
+	allText.append(auxItem.country);
+	allText.append(" ");
+	Help::toLowerCase(allText);
+	Help::removeAccents(allText);
+	//Update the term frequency on item map
+	for(string word : Help::split(allText, ' ')){
+		if(mapStopWords.find(word) == mapStopWords.end()){
+			if(indexItem.find(word) == indexItem.end()){
+				indexItem[word][itemId] = 1;
+			} else {
+				indexItem[word][itemId] += 1;
+			}
+		}
+	}
+}

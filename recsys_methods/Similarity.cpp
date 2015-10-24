@@ -110,3 +110,48 @@ void Similarity::cosineByItem(int item){
 	}
 	//data.sortItemSimilarity(item);
 }
+
+void Similarity::featuresTfIdf(){
+	double idf, tf, norm;
+	double collectionSize = (double)data.ratingsByItem.size();
+	unordered_map<string, unordered_map<int, double> >::iterator itrWord = data.indexItem.begin();
+	unordered_map<int, int>::iterator itrUser;
+	unordered_map<int, double>::iterator itrItem;
+	unordered_map<int, unordered_map<string, double> >::iterator itrModel;
+	unordered_map<string, double>::iterator itrWordUser;
+	//For each word, insert the tf-idf of the item and update the user model
+	for (; itrWord != data.indexItem.end(); ++itrWord){
+		idf = log2(1 + collectionSize / (double) itrWord->second.size());
+		itrItem = itrWord->second.begin();
+
+		//Insert the tf-idf of the item
+		for(; itrItem != itrWord->second.end(); ++itrItem){
+			tf = log2(1 + itrItem->second);
+			itrItem->second = tf * idf;
+
+			//Update the user model
+			itrUser = data.ratingsByItem[itrItem->first].begin();
+			for(; itrUser != data.ratingsByItem[itrItem->first].end(); ++itrUser) {
+				if(data.userModel.find(itrUser->first) == data.userModel.end() ||
+						data.userModel[itrUser->first].find(itrWord->first) == data.userModel[itrUser->first].end()	){
+					data.userModel[itrUser->first][itrWord->first] = itrItem->second * (double)itrUser->second;
+				} else {
+					data.userModel[itrUser->first][itrWord->first] += itrItem->second * (double)itrUser->second;
+				}
+			}
+		}
+	}
+
+	//Normalize the user model
+	itrModel = data.userModel.begin();
+	for(;itrModel != data.userModel.end(); ++itrModel){
+		norm = 0;
+		for(const auto &item : data.ratingsByUser[itrModel->first]){
+			norm += item.second;
+		}
+		itrWordUser = itrModel->second.begin();
+		for(; itrWordUser != itrModel->second.end(); ++itrWordUser){
+			itrWordUser->second /= norm;
+		}
+	}
+}

@@ -35,3 +35,22 @@ vector<string> Help::split(string s, const char &d){
 	if(buff != "") result.push_back(buff);
 	return result;
 }
+
+void Help::toLowerCase(string &s){
+	transform(s.begin(), s.end(), s.begin(), ::tolower);
+}
+
+void Help::removeAccents(string &text){
+	string textWithoutAccents = "";
+
+	for(unsigned int i = 0; i < text.size();i++){
+		if((int)text[i] >= 48 && (int)text[i] <= 57 ||
+			(int)text[i] >= 97 && (int)text[i] <= 122 ||
+			(int)text[i] == 32){
+			textWithoutAccents += text[i];
+		} else {
+			textWithoutAccents += " ";
+		}
+	}
+	text = textWithoutAccents;
+}

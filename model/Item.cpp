@@ -20,7 +20,6 @@ Item::~Item() {
 }
 
 void Item::loadJson(string jsonText){
-	cout << jsonText << "\n";
 	if(jsonText.empty()) return;
 
 	size_t posAux;
@@ -35,7 +34,7 @@ void Item::loadJson(string jsonText){
 	json::Value input = json::Deserialize(jsonText.c_str());
 	json::Object jsonObject = input.ToObject();
 	if (input.GetType() == json::NULLVal){
-		cerr << "JSON error!";
+		cerr << "Erro no arquivo JSON!";
 		return;
 	}
 	if(jsonObject["Response"].ToString() == "False") return;

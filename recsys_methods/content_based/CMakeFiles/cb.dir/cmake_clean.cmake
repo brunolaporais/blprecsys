@@ -1,5 +1,5 @@
 FILE(REMOVE_RECURSE
-  "CMakeFiles/cb.dir/IRBased.cpp.o"
+  "CMakeFiles/cb.dir/TfIdfBased.cpp.o"
   "libcb.pdb"
   "libcb.a"
 )

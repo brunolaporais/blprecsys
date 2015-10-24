@@ -23,6 +23,7 @@ public:
 	virtual ~Similarity();
 	void cosineByUser(int usr);
 	void cosineByItem(int item);
+	void featuresTfIdf();
 private:
 	Dataset &data;
 };

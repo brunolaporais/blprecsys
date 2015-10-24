@@ -1,5 +1,5 @@
 /*
- * IRBased.h
+ * TfIdfBased.h
  *
  *  Created on: 23/10/2015
  *      Author: blpadmin
@@ -17,11 +17,11 @@ using namespace std;
 #ifndef RECSYS_METHODS_CONTENT_BASED_IRBASED_H_
 #define RECSYS_METHODS_CONTENT_BASED_IRBASED_H_
 
-class IRBased {
+class TfIdfBased {
 public:
-	IRBased(Dataset &d);
-	virtual ~IRBased();
-	void predictTarget();
+	TfIdfBased(Dataset &d);
+	virtual ~TfIdfBased();
+	void predictTarget(int nbNumbers, int minItems, int minUsers);
 private:
 	Dataset &data;
 };

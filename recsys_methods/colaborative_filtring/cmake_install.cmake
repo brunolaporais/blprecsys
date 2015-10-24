@@ -1,4 +1,4 @@
-# Install script for directory: /home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring
+# Install script for directory: /home/blpadmin/git/blprecsys/recsys_methods/colaborative_filtring
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -6,15 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/home/brunolaporais/git/blprecsys/util/Help.cpp
+/home/blpadmin/git/blprecsys/util/Help.cpp
 Help.h
-/home/brunolaporais/git/blprecsys/util/Help.h
+/home/blpadmin/git/blprecsys/util/Help.h
 
-/home/brunolaporais/git/blprecsys/util/Help.h
+/home/blpadmin/git/blprecsys/util/Help.h
 vector
 -
 iostream
 -
 stdio.h
+-
+algorithm
 -
 

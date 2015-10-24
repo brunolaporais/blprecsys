@@ -23,6 +23,7 @@ Input::Input(Dataset &d, string rating, string target, string content):data(d) {
 }
 
 Input::~Input() {
+
 }
 
 void Input::readRatings(){
@@ -111,7 +112,8 @@ void Input::readTargets(){
 
 void Input::readContents(){
 	ifstream inFile(contentFile, ios::in | ios::app | ios::binary);
-	string line, json;
+	string line, jsonText;
+	Item auxItem;
 	int item;
 	if(inFile.is_open()){
 		getline(inFile, line);
@@ -120,10 +122,27 @@ void Input::readContents(){
 				break;
 			}
 			item = stoi(line.substr(1,line.find(",") - 1));
-			json = line.substr(line.find(",")+1,line.size());
+			jsonText = line.substr(line.find(",")+1,line.size());
 			/*Insert new content*/
-			data.itemContent[item] = Item(json);
+			auxItem = Item(jsonText);
+			data.insertItem(item, auxItem);
 		}
 		inFile.close();
 	}
+
+	loadStopWords();
+}
+
+void Input::loadStopWords(){
+	ifstream stopWords ("stopWords.txt");
+	string line;
+	char *aux = new char('0');
+	if(stopWords.is_open()){
+		while(getline(stopWords,line)){
+			data.mapStopWords[line] = aux;
+		}
+	}else{
+		cerr<< "stopWords.txt não encontrado no diretório ";
+	}
+	delete(aux);
 }

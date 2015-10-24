@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/brunolaporais/git/blprecsys/lib/json.h
+/home/blpadmin/git/blprecsys/lib/json.h
 vector
 -
 map
@@ -16,7 +16,7 @@ string
 stdexcept
 -
 
-/home/brunolaporais/git/blprecsys/model/Dataset.h
+/home/blpadmin/git/blprecsys/model/Dataset.h
 stdio.h
 -
 iostream
@@ -28,9 +28,11 @@ vector
 algorithm
 -
 Item.h
-/home/brunolaporais/git/blprecsys/model/Item.h
+/home/blpadmin/git/blprecsys/model/Item.h
+../util/Help.h
+/home/blpadmin/git/blprecsys/util/Help.h
 
-/home/brunolaporais/git/blprecsys/model/Item.h
+/home/blpadmin/git/blprecsys/model/Item.h
 iostream
 -
 stdio.h
@@ -38,11 +40,11 @@ stdio.h
 vector
 -
 ../lib/json.h
-/home/brunolaporais/git/blprecsys/lib/json.h
+/home/blpadmin/git/blprecsys/lib/json.h
 ../util/Help.h
-/home/brunolaporais/git/blprecsys/util/Help.h
+/home/blpadmin/git/blprecsys/util/Help.h
 
-/home/brunolaporais/git/blprecsys/recsys_methods/Similarity.h
+/home/blpadmin/git/blprecsys/recsys_methods/Similarity.h
 stdio.h
 -
 iostream
@@ -52,13 +54,13 @@ tr1/unordered_map
 cmath
 -
 ../model/Dataset.h
-/home/brunolaporais/git/blprecsys/model/Dataset.h
+/home/blpadmin/git/blprecsys/model/Dataset.h
 
-/home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/ItemBased.cpp
+/home/blpadmin/git/blprecsys/recsys_methods/colaborative_filtring/ItemBased.cpp
 ItemBased.h
-/home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/ItemBased.h
+/home/blpadmin/git/blprecsys/recsys_methods/colaborative_filtring/ItemBased.h
 
-/home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/ItemBased.h
+/home/blpadmin/git/blprecsys/recsys_methods/colaborative_filtring/ItemBased.h
 stdio.h
 -
 iostream
@@ -68,25 +70,25 @@ tr1/unordered_map
 cmath
 -
 ../../model/Dataset.h
-/home/brunolaporais/git/blprecsys/model/Dataset.h
+/home/blpadmin/git/blprecsys/model/Dataset.h
 ../Similarity.h
-/home/brunolaporais/git/blprecsys/recsys_methods/Similarity.h
+/home/blpadmin/git/blprecsys/recsys_methods/Similarity.h
 
-/home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/MatrixFact.cpp
+/home/blpadmin/git/blprecsys/recsys_methods/colaborative_filtring/MatrixFact.cpp
 MatrixFact.h
-/home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/MatrixFact.h
+/home/blpadmin/git/blprecsys/recsys_methods/colaborative_filtring/MatrixFact.h
 
-/home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/MatrixFact.h
+/home/blpadmin/git/blprecsys/recsys_methods/colaborative_filtring/MatrixFact.h
 tr1/unordered_map
 -
 ../../model/Dataset.h
-/home/brunolaporais/git/blprecsys/model/Dataset.h
+/home/blpadmin/git/blprecsys/model/Dataset.h
 
-/home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/UserBased.cpp
+/home/blpadmin/git/blprecsys/recsys_methods/colaborative_filtring/UserBased.cpp
 UserBased.h
-/home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/UserBased.h
+/home/blpadmin/git/blprecsys/recsys_methods/colaborative_filtring/UserBased.h
 
-/home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/UserBased.h
+/home/blpadmin/git/blprecsys/recsys_methods/colaborative_filtring/UserBased.h
 stdio.h
 -
 iostream
@@ -96,15 +98,17 @@ tr1/unordered_map
 cmath
 -
 ../../model/Dataset.h
-/home/brunolaporais/git/blprecsys/model/Dataset.h
+/home/blpadmin/git/blprecsys/model/Dataset.h
 ../Similarity.h
-/home/brunolaporais/git/blprecsys/recsys_methods/Similarity.h
+/home/blpadmin/git/blprecsys/recsys_methods/Similarity.h
 
-/home/brunolaporais/git/blprecsys/util/Help.h
+/home/blpadmin/git/blprecsys/util/Help.h
 vector
 -
 iostream
 -
 stdio.h
+-
+algorithm
 -
 
