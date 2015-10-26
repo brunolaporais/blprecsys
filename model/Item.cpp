@@ -27,6 +27,7 @@ void Item::loadJson(string jsonText){
 	string strAux;
 	posAux = jsonText.find("\\\",\"");
 	if(posAux != string::npos){
+		cout << jsonText << endl;
 		strAux = jsonText.substr(posAux+2,jsonText.size());
 		jsonText = jsonText.replace(posAux,jsonText.find("\\\",\"")+1,"\"");
 		jsonText.append(strAux);

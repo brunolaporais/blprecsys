@@ -1,6 +1,6 @@
 FILE(REMOVE_RECURSE
-  "CMakeFiles/cf.dir/UserBased.cpp.o"
   "CMakeFiles/cf.dir/ItemBased.cpp.o"
+  "CMakeFiles/cf.dir/UserBased.cpp.o"
   "CMakeFiles/cf.dir/MatrixFact.cpp.o"
   "libcf.pdb"
   "libcf.a"

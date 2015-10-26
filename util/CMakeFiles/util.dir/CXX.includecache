@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/blpadmin/git/blprecsys/util/Help.cpp
+/home/brunolaporais/git/blprecsys/util/Help.cpp
 Help.h
-/home/blpadmin/git/blprecsys/util/Help.h
+/home/brunolaporais/git/blprecsys/util/Help.h
 
-/home/blpadmin/git/blprecsys/util/Help.h
+/home/brunolaporais/git/blprecsys/util/Help.h
 vector
 -
 iostream

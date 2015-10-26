@@ -1,4 +1,4 @@
-# Install script for directory: /home/blpadmin/git/blprecsys/recsys_methods/content_based
+# Install script for directory: /home/brunolaporais/git/blprecsys/recsys_methods/content_based
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)

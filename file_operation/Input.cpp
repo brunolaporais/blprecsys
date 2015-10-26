@@ -42,7 +42,6 @@ void Input::readRatings(){
 			rateAux = line.substr(line.find(",") + 1,line.size());
 			rateAux = rateAux.substr(0,rateAux.find(","));
 			rate = stoi(rateAux);
-
 			/*Insert new user (Items by user)*/
 			data.ratingsByUser[usr][item] = rate;
 
