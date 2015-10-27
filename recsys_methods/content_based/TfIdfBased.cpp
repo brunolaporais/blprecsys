@@ -66,13 +66,13 @@ void TfIdfBased::predictTarget(int nbNumbers, int minItems, int minUsers){
 			} else if (auxValue >= 5){
 				rating += 0;
 			} else if (auxValue >= 3){
-				rating -= 0.3;
+				rating -= 1;
 			} else if (auxValue >= 3){
-				rating -= 0.8;
-			} else if (auxValue >= 2){
 				rating -= 1.5;
-			} else {
+			} else if (auxValue >= 2){
 				rating -= 2;
+			} else {
+				rating -= 2.5;
 			}
 			if(rating > 10) rating = 10;
 			if(rating < 1) rating = 1;

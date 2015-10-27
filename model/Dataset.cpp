@@ -128,6 +128,7 @@ void Dataset::insertItem(int itemId, Item auxItem){
 	allText.append(" ");
 	allText.append(auxItem.country);
 	allText.append(" ");
+	allText.append(to_string(auxItem.year));
 	Help::toLowerCase(allText);
 	Help::removeAccents(allText);
 	//Update the term frequency on item map
