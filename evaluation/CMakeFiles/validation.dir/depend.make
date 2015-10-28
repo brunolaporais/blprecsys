@@ -11,5 +11,6 @@ evaluation/CMakeFiles/validation.dir/ErrorValidation.cpp.o: recsys_methods/Simil
 evaluation/CMakeFiles/validation.dir/ErrorValidation.cpp.o: recsys_methods/colaborative_filtring/ItemBased.h
 evaluation/CMakeFiles/validation.dir/ErrorValidation.cpp.o: recsys_methods/colaborative_filtring/MatrixFact.h
 evaluation/CMakeFiles/validation.dir/ErrorValidation.cpp.o: recsys_methods/colaborative_filtring/UserBased.h
+evaluation/CMakeFiles/validation.dir/ErrorValidation.cpp.o: recsys_methods/content_based/TfIdfBased.h
 evaluation/CMakeFiles/validation.dir/ErrorValidation.cpp.o: util/Help.h
 

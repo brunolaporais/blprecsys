@@ -21,7 +21,7 @@ class TfIdfBased {
 public:
 	TfIdfBased(Dataset &d);
 	virtual ~TfIdfBased();
-	void predictTarget(int nbNumbers, int minItems, int minUsers);
+	void predictTarget(double minTfIdf);
 private:
 	Dataset &data;
 };

@@ -12,6 +12,7 @@ SET(CMAKE_CXX_COMPILER_ID "GNU")
 SET(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/brunolaporais/git/blprecsys/model/CMakeFiles/model.dir/DependInfo.cmake"
   "/home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/CMakeFiles/cf.dir/DependInfo.cmake"
+  "/home/brunolaporais/git/blprecsys/recsys_methods/content_based/CMakeFiles/cb.dir/DependInfo.cmake"
   "/home/brunolaporais/git/blprecsys/file_operation/CMakeFiles/file_operation.dir/DependInfo.cmake"
   "/home/brunolaporais/git/blprecsys/recsys_methods/CMakeFiles/recsys_methods.dir/DependInfo.cmake"
   "/home/brunolaporais/git/blprecsys/lib/CMakeFiles/lib.dir/DependInfo.cmake"

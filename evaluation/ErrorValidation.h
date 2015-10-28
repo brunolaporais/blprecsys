@@ -13,6 +13,7 @@
 #include "../recsys_methods/colaborative_filtring/ItemBased.h"
 #include "../recsys_methods/colaborative_filtring/UserBased.h"
 #include "../recsys_methods/colaborative_filtring/MatrixFact.h"
+#include "../recsys_methods/content_based/TfIdfBased.h"
 
 #ifndef VALIDATION_ERRORVALIDATION_H_
 #define VALIDATION_ERRORVALIDATION_H_
@@ -22,6 +23,7 @@ public:
 	ErrorValidation();
 	virtual ~ErrorValidation();
 	void compareValidation(Dataset &correctData);
+	void contentValidation(Dataset &correctData);
 	void rmseValidation(Dataset &correctData);
 	void targetsGenerate(Dataset &correctData);
 	void ratingsGenerate(Dataset &correctData);

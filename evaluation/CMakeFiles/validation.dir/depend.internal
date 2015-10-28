@@ -12,4 +12,5 @@ evaluation/CMakeFiles/validation.dir/ErrorValidation.cpp.o
  /home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/ItemBased.h
  /home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/MatrixFact.h
  /home/brunolaporais/git/blprecsys/recsys_methods/colaborative_filtring/UserBased.h
+ /home/brunolaporais/git/blprecsys/recsys_methods/content_based/TfIdfBased.h
  /home/brunolaporais/git/blprecsys/util/Help.h

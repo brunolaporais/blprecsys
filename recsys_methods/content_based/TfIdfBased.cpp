@@ -14,7 +14,7 @@ TfIdfBased::~TfIdfBased() {
 	// TODO Auto-generated destructor stub
 }
 
-void TfIdfBased::predictTarget(int nbNumbers, int minItems, int minUsers){
+void TfIdfBased::predictTarget(double minTfIdf){
 	Similarity calcSim(data);
 	unordered_map<int,unordered_map<int,double> >::iterator itrTargUser = data.targetData.begin();
 	unordered_map<int,double>::iterator itrTargItem, itrWordItem;
@@ -24,38 +24,37 @@ void TfIdfBased::predictTarget(int nbNumbers, int minItems, int minUsers){
 	for(; itrTargUser != data.targetData.end(); ++itrTargUser){
 		itrTargItem = data.targetData[itrTargUser->first].begin();
 		for(; itrTargItem != data.targetData[itrTargUser->first].end(); ++itrTargItem){
-			if(data.ratingsByUser[itrTargUser->first].size() <= minItems &&
-				data.ratingsByItem[itrTargItem->first].size() <= minUsers){
-				rating = data.itemAvg;
-			} else if(data.ratingsByUser[itrTargUser->first].size() <= minItems){
-				rating = data.avgByItem[itrTargItem->first];
-			} else if(data.ratingsByItem[itrTargItem->first].size() <= minUsers){
-				rating = data.avgByUser[itrTargUser->first];
-			} else {
-				itrWordUser = data.userModel[itrTargUser->first].begin();
-				tfIdfAlvo = 0;
-				numerator = 0;
-				denomUser = 0;
-				denomItem = 0;
-				for(; itrWordUser != data.userModel[itrTargUser->first].end(); ++itrWordUser){
-					if(data.indexItem[itrWordUser->first].find(itrTargItem->first) != data.indexItem[itrWordUser->first].end()) {
+			itrWordUser = data.userModel[itrTargUser->first].begin();
+			tfIdfAlvo = 0;
+			numerator = 0;
+			denomUser = 0;
+			denomItem = 0;
+			for(; itrWordUser != data.userModel[itrTargUser->first].end(); ++itrWordUser){
+				if(data.indexItem[itrWordUser->first].find(itrTargItem->first) != data.indexItem[itrWordUser->first].end()) {
+					if(itrWordUser->second > minTfIdf){
 						tfIdfAlvo = data.indexItem[itrWordUser->first][itrTargItem->first];
 						numerator += itrWordUser->second * tfIdfAlvo;
 						denomUser += itrWordUser->second * itrWordUser->second;
 						denomItem += tfIdfAlvo * tfIdfAlvo;
 					}
 				}
-				if(numerator == 0 || denomUser == 0 || denomItem == 0) {
+			}
+			if(numerator == 0 || denomUser == 0 || denomItem == 0) {
+				if(data.avgByUser.find(itrTargUser->first) != data.avgByUser.end()){
 					rating = data.avgByUser[itrTargUser->first];
 				} else {
-					rating = numerator / (sqrt(denomUser) * sqrt(denomItem));
-					rating *= 10.0;
+					rating = 0;
 				}
-				//cout << numerator << "/(" << denomUser << "*" << denomItem << ") = " << rating << endl;
-				//getchar();
+			} else {
+				rating = numerator / (sqrt(denomUser) * sqrt(denomItem));
+				rating *= 10.0;
 			}
+			//cout << numerator << "/(" << denomUser << "*" << denomItem << ") = " << rating << endl;
+			//getchar();
 			auxValue = data.itemContent[itrTargItem->first].imbdRatings;
-			if(auxValue >= 9){
+			if (rating == 0) {
+				rating = auxValue;
+			} else if(auxValue >= 9){
 				rating += 2;
 			} else if (auxValue >= 8){
 				rating += 1.5;

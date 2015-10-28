@@ -49,6 +49,30 @@ void ErrorValidation::compareValidation(Dataset &correctData){
 	}
 }
 
+void ErrorValidation::contentValidation(Dataset &correctData){
+	double rmse = 0.0;
+	int n = 0, count;
+	for(int i = 80; i <= 100; i++){
+		Dataset dataRb;
+		/*Read data*/
+		Input inpRb(dataRb, "ratings.csv", "targets.csv", "/mnt/SHARE/RecSys/pa2/content.csv");
+		TfIdfBased tfb(dataRb);
+		tfb.predictTarget(i/10.0);
+		rmse = 0;
+		n = 0;
+		count = 0;
+		for(auto itUsrTarget = dataRb.targetData.begin(); itUsrTarget != dataRb.targetData.end(); ++itUsrTarget){
+			for(auto itItemTarget = dataRb.targetData[itUsrTarget->first].begin(); itItemTarget != dataRb.targetData[itUsrTarget->first].end(); ++itItemTarget){
+				rmse += pow(correctData.ratingsByUser[itUsrTarget->first][itItemTarget->first] - itItemTarget->second,2);
+				++n;
+			}
+		}
+		rmse /= n;
+		rmse = sqrt(rmse);
+		cout << (i/10.0) <<"-RMSE: " << rmse << "\n";
+	}
+}
+
 void ErrorValidation::rmseValidation(Dataset &correctData){
 	double rmse = 0.0;
 	int n = 0;
