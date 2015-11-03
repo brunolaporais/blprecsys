@@ -52,7 +52,7 @@ void ErrorValidation::compareValidation(Dataset &correctData){
 void ErrorValidation::contentValidation(Dataset &correctData){
 	double rmse = 0.0;
 	int n = 0, count;
-	for(int i = 100; i <= 150; i++){
+	for(int i = 1; i <= 200; i++){
 		Dataset dataRb;
 		/*Read data*/
 		Input inpRb(dataRb, "ratings.csv", "targets.csv", "/mnt/SHARE/RecSys/pa2/content.csv");
