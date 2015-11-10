@@ -14,12 +14,14 @@ TfIdfBased::~TfIdfBased() {
 	// TODO Auto-generated destructor stub
 }
 
-void TfIdfBased::predictTarget(double minTfIdf){
+void TfIdfBased::predictTarget(double minTfIdf, int maxTarget){
 	Similarity calcSim(data);
 	unordered_map<int,unordered_map<int,double> >::iterator itrTargUser = data.targetData.begin();
 	unordered_map<int,double>::iterator itrTargItem, itrWordItem;
 	unordered_map<string,double>::iterator itrWordUser;
 	double tfIdfAlvo, rating, numerator, denomUser, denomItem, auxValue;
+	int count = 0;
+
 	calcSim.featuresTfIdf();
 	for(; itrTargUser != data.targetData.end(); ++itrTargUser){
 		itrTargItem = data.targetData[itrTargUser->first].begin();
@@ -52,32 +54,40 @@ void TfIdfBased::predictTarget(double minTfIdf){
 			//cout << numerator << "/(" << denomUser << "*" << denomItem << ") = " << rating << endl;
 			//getchar();
 			auxValue = data.itemContent[itrTargItem->first].imbdRatings;
-			if (rating == 0) {
-				rating = auxValue;
-			} else if(auxValue >= 9){
-				rating += 2;
-			} else if (auxValue >= 8){
-				rating += 1.5;
-			} else if (auxValue >= 7){
-				rating += 0.8;
-			} else if (auxValue >= 6){
-				rating += 0.3;
-			} else if (auxValue >= 5){
-				rating += 0;
-			} else if (auxValue >= 3){
-				rating -= 1;
-			} else if (auxValue >= 3){
-				rating -= 1.5;
-			} else if (auxValue >= 2){
-				rating -= 2;
+			if(auxValue != 0){
+				if (rating == 0) {
+					rating = auxValue;
+				} else if(auxValue >= 9){
+					rating += 2;
+				} else if (auxValue >= 8){
+					rating += 1.5;
+				} else if (auxValue >= 7){
+					rating += 0.8;
+				} else if (auxValue >= 6){
+					rating += 0.3;
+				} else if (auxValue >= 5){
+					rating += 0;
+				} else if (auxValue >= 3){
+					rating -= 1;
+				} else if (auxValue >= 3){
+					rating -= 1.5;
+				} else if (auxValue >= 2){
+					rating -= 2;
+				} else {
+					rating -= 2.5;
+				}
 			} else {
-				rating -= 2.5;
+				if (rating == 0) {
+					rating = 5;
+				}
 			}
 			if(rating > 10) rating = 10;
 			if(rating < 1) rating = 1;
 			rating = rating;
 			data.targetData[itrTargUser->first][itrTargItem->first] = rating;
+
+			count++;
+			if(count >= maxTarget and maxTarget > 0) break;
 		}
 	}
-
 }

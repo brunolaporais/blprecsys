@@ -51,11 +51,11 @@ int main(int argc, char *argv[]) {
 	 * */
 	Dataset dataRb;
 	Input inpRb(dataRb, argv[2], argv[3], argv[1]);
-	TfIdfBased tfb(dataRb);
-	tfb.predictTarget(4);
-	dataRb.printSolution();
+	//TfIdfBased tfb(dataRb);
+	//tfb.predictTarget(4);
+	//dataRb.printSolution();
 
 	/*Validation*/
-	//ErrorValidation valid;
-	//valid.contentValidation(dataRb);
+	ErrorValidation valid;
+	valid.contentValidation(dataRb);
 }

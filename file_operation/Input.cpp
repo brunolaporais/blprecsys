@@ -114,6 +114,7 @@ void Input::readContents(){
 	string line, jsonText;
 	Item auxItem;
 	int item;
+	loadStopWords();
 	if(inFile.is_open()){
 		getline(inFile, line);
 		while(getline(inFile, line)){
@@ -128,8 +129,6 @@ void Input::readContents(){
 		}
 		inFile.close();
 	}
-
-	loadStopWords();
 }
 
 void Input::loadStopWords(){

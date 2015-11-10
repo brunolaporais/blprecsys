@@ -5,6 +5,7 @@
  *      Author: brunolaporais
  */
 
+#include <ctime>
 #include "../evaluation/ErrorValidation.h"
 
 ErrorValidation::ErrorValidation() {
@@ -52,12 +53,15 @@ void ErrorValidation::compareValidation(Dataset &correctData){
 void ErrorValidation::contentValidation(Dataset &correctData){
 	double rmse = 0.0;
 	int n = 0, count;
-	for(int i = 1; i <= 200; i++){
+	long double sysTime = 0;
+	for(int i = 1; i <= 80; i++){
+		sysTime = time(0);
 		Dataset dataRb;
 		/*Read data*/
 		Input inpRb(dataRb, "ratings.csv", "targets.csv", "/mnt/SHARE/RecSys/pa2/content.csv");
 		TfIdfBased tfb(dataRb);
-		tfb.predictTarget(i/10.0);
+		//tfb.predictTarget(i/10.0);
+		tfb.predictTarget(10,i * 1000);
 		rmse = 0;
 		n = 0;
 		count = 0;
@@ -69,7 +73,8 @@ void ErrorValidation::contentValidation(Dataset &correctData){
 		}
 		rmse /= n;
 		rmse = sqrt(rmse);
-		cout << (i/10.0) <<"-RMSE: " << rmse << "\n";
+		//cout << (i/10.0) <<"-RMSE: " << rmse << "\n";
+		cout << i * 1000 << " - " << time(0) - sysTime << "\n";
 	}
 }
 

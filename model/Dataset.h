@@ -24,6 +24,7 @@ class Dataset {
 public:
 	Dataset();
 	virtual ~Dataset();
+	void cleanTarget();
 	void sortUserSimilarity(int usr);
 	void sortItemSimilarity(int item);
 	void targetMerge(Dataset &d);
