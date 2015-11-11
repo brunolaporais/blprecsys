@@ -49,13 +49,13 @@ int main(int argc, char *argv[]) {
 	/*
 	 * Content Based
 	 * */
-	Dataset dataRb;
-	Input inpRb(dataRb, argv[2], argv[3], argv[1]);
+	Dataset dataTFb;
+	Input inpRb(dataTFb, argv[2], argv[3], argv[1]);
 	//TfIdfBased tfb(dataRb);
 	//tfb.predictTarget(4);
 	//dataRb.printSolution();
 
 	/*Validation*/
 	ErrorValidation valid;
-	valid.contentValidation(dataRb);
+	valid.contentValidation(dataTFb);
 }

@@ -59,6 +59,7 @@ void ErrorValidation::contentValidation(Dataset &correctData){
 		Dataset dataRb;
 		/*Read data*/
 		Input inpRb(dataRb, "ratings.csv", "targets.csv", "/mnt/SHARE/RecSys/pa2/content.csv");
+		//Input inpRb(dataRb, "ratings.csv", "targets.csv", "/mnt/Shared/RecSys/pa2/content.csv");
 		TfIdfBased tfb(dataRb);
 		//tfb.predictTarget(i/10.0);
 		tfb.predictTarget(10,i * 1000);
@@ -74,7 +75,9 @@ void ErrorValidation::contentValidation(Dataset &correctData){
 		rmse /= n;
 		rmse = sqrt(rmse);
 		//cout << (i/10.0) <<"-RMSE: " << rmse << "\n";
-		cout << i * 1000 << " - " << time(0) - sysTime << "\n";
+		//cout << "RMSE: " << rmse;
+		//cout << " - " << i * 1000 << " - " << time(0) - sysTime << "\n";
+		cout << time(0) - sysTime << "\n";
 	}
 }
 

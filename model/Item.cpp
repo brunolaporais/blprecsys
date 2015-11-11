@@ -25,6 +25,7 @@ void Item::loadJson(string jsonText){
 	size_t posAux;
 	int intAux;
 	string strAux;
+
 	/*posAux = jsonText.find("\\\",\"");
 	if(posAux != string::npos){
 		cout << jsonText << endl;
@@ -32,6 +33,7 @@ void Item::loadJson(string jsonText){
 		jsonText = jsonText.replace(posAux,jsonText.find("\\\",\"")+1,"\"");
 		jsonText.append(strAux);
 	}*/
+
 	json::Value input = json::Deserialize(jsonText.c_str());
 	json::Object jsonObject = input.ToObject();
 	if (input.GetType() == json::NULLVal){
