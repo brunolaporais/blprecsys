@@ -1,2 +1,0 @@
-/usr/bin/ar cr libcb.a  CMakeFiles/cb.dir/TfIdfBased.cpp.o
-/usr/bin/ranlib libcb.a

@@ -1,2 +1,0 @@
-/usr/bin/ar cr librecsys_methods.a  CMakeFiles/recsys_methods.dir/Similarity.cpp.o
-/usr/bin/ranlib librecsys_methods.a

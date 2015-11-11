@@ -1,2 +1,0 @@
-ADD_SUBDIRECTORY(FileOperation)
-ADD_SUBDIRECTORY(Socket)

@@ -1,2 +1,0 @@
-/usr/bin/ar cr libvalidation.a  CMakeFiles/validation.dir/ErrorValidation.cpp.o
-/usr/bin/ranlib libvalidation.a
