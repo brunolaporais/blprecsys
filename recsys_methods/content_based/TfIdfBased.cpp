@@ -68,13 +68,13 @@ void TfIdfBased::predictTarget(double minTfIdf, int maxTarget){
 				} else if (auxValue >= 5){
 					rating += 0;
 				} else if (auxValue >= 3){
-					rating -= 1;
-				} else if (auxValue >= 3){
-					rating -= 1.5;
-				} else if (auxValue >= 2){
 					rating -= 2;
-				} else {
+				} else if (auxValue >= 3){
 					rating -= 2.5;
+				} else if (auxValue >= 2){
+					rating -= 3;
+				} else {
+					rating -= 3.5;
 				}
 			} else {
 				if (rating == 0) {
