@@ -1,0 +1,25 @@
+CC = g++
+CC_FLAGS = -std=c++11 -w -fpermissive  -O3 #-g -DDEBUG #-O3  
+
+EXEC = recommender
+SOURCES = $(wildcard *.cpp) $(wildcard evaluation/*.cpp) $(wildcard file_operation/*.cpp) $(wildcard lib/*.cpp) $(wildcard model/*.cpp) $(wildcard recsys_methods/*.cpp) $(wildcard util/*.cpp) $(wildcard recsys_methods/colaborative_filtring/*.cpp) $(wildcard recsys_methods/content_based/*.cpp) 
+OBJECTS = $(SOURCES:.cpp=.o)
+
+# Main target
+$(EXEC): $(OBJECTS)
+	$(CC) $(OBJECTS) -o  $(EXEC)
+
+# To obtain object files
+%.o: %.cpp
+	$(CC) -c $(CC_FLAGS) $< -o $@
+
+all:	$(EXEC)
+
+# It is expected that both files exist in current directory  
+run:
+	./recommender ratings.csv targets.csv > submission.csv
+	
+clean:
+	rm -f $(EXEC) $(OBJECTS)
+
+	
